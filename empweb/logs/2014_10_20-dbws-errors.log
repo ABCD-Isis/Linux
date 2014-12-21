@@ -1,0 +1,26 @@
+20:06:33.090 INFO   [main] org.mortbay.log.LogImpl.add(LogImpl.java:109) >22> added org.mortbay.log.OutputStreamLogSink@21e60319
+20:06:33.091 INFO   [main] org.mortbay.http.HttpServer.doStart(HttpServer.java:684) >10> Version Jetty/5.1.11
+20:06:33.308 INFO   [main] org.mortbay.util.Container.start(Container.java:74) >15> Started org.mortbay.jetty.servlet.WebApplicationHandler@18e1be72
+20:06:33.332 INFO   [main] org.mortbay.util.Container.start(Container.java:74) >11> Started WebApplicationContext[/ewdbws,EmpWeb Database Web Services]
+20:06:33.334 INFO   [main] org.mortbay.http.SocketListener.start(SocketListener.java:205) >11> Started SocketListener on 0.0.0.0:8085
+20:06:33.334 INFO   [main] org.mortbay.util.Container.start(Container.java:74) >09> Started org.mortbay.jetty.Server@19ba9aca
+20:06:33.347 INFO   [main] org.mortbay.http.HttpServer.doStart(HttpServer.java:684) >10> Version Jetty/5.1.11
+20:06:33.448 INFO   [main] org.mortbay.util.Container.start(Container.java:74) >15> Started org.mortbay.jetty.servlet.WebApplicationHandler@4ba57633
+20:06:33.453 INFO   [main] org.mortbay.util.Container.start(Container.java:74) >11> Started WebApplicationContext[/ewengine,Empweb Engine Web Services]
+20:06:33.456 INFO   [main] org.mortbay.http.SocketListener.start(SocketListener.java:205) >11> Started SocketListener on 0.0.0.0:8086
+20:06:33.456 INFO   [main] org.mortbay.util.Container.start(Container.java:74) >09> Started org.mortbay.jetty.Server@8a7d8b0
+20:06:33.479 INFO   [main] org.mortbay.log.LogImpl.add(LogImpl.java:109) >22> added org.mortbay.log.OutputStreamLogSink@e5ddccb
+20:06:33.479 INFO   [main] org.mortbay.http.HttpServer.doStart(HttpServer.java:684) >10> Version Jetty/5.1.11
+20:06:33.639 INFO   [main] org.mortbay.util.Container.start(Container.java:74) >15> Started org.mortbay.jetty.servlet.WebApplicationHandler@51e05ddd
+20:06:33.654 INFO   [main] org.mortbay.util.Container.start(Container.java:74) >11> Started WebApplicationContext[/empweb,Empweb GUI in JSP]
+20:06:33.655 INFO   [main] org.mortbay.http.SocketListener.start(SocketListener.java:205) >11> Started SocketListener on 0.0.0.0:8080
+20:06:33.655 INFO   [main] org.mortbay.util.Container.start(Container.java:74) >09> Started org.mortbay.jetty.Server@1cdc8d59
+20:06:40.317 INFO   [SocketListener2-4] org.mortbay.util.Container.start(Container.java:74) >08> Started HttpContext[/,/]
+10:59:57.119 INFO   [Shutdown] org.mortbay.jetty.Server$ShutdownHookThread.run(Server.java:555) >01> Shutdown hook executing
+10:59:57.120 INFO   [Acceptor ServerSocket[addr=0.0.0.0/0.0.0.0,localport=8085]] org.mortbay.util.ThreadedServer$Acceptor.run(ThreadedServer.java:659) >01> Stopping Acceptor ServerSocket[addr=0.0.0.0/0.0.0.0,localport=8085]
+10:59:57.220 INFO   [Shutdown] org.mortbay.http.SocketListener.stop(SocketListener.java:213) >04> Stopped SocketListener on 0.0.0.0:8085
+10:59:57.220 INFO   [Shutdown] org.mortbay.util.Container.stop(Container.java:156) >09> Stopped org.mortbay.jetty.servlet.WebApplicationHandler@18e1be72
+10:59:57.292 INFO   [Shutdown] org.mortbay.util.Container.stop(Container.java:156) >05> Stopped WebApplicationContext[/ewdbws,EmpWeb Database Web Services]
+10:59:57.293 INFO   [Shutdown] org.mortbay.util.Container.stop(Container.java:156) >02> Stopped org.mortbay.jetty.Server@19ba9aca
+10:59:57.293 INFO   [Shutdown] org.mortbay.jetty.Server$ShutdownHookThread.run(Server.java:565) >01> Shutdown hook complete
+10:59:58.293 INFO   [Shutdown] org.mortbay.jetty.Server$ShutdownHookThread.run(Server.java:565) >01> Shutdown hook complete

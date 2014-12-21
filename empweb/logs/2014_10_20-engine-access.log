@@ -1,0 +1,4 @@
+127.0.0.1 - - [20/Oct/2014:20:06:36 +0000] "POST /ewengine/services/EngineInit HTTP/1.0" 200 285 "-" "Axis/1.2.1" -
+127.0.0.1 - - [20/Oct/2014:20:08:19 +0000] "POST /ewengine/services/EmpwebTransactionService HTTP/1.1" 200 1035 "-" "Java/1.7.0_45" -
+127.0.0.1 - - [20/Oct/2014:20:08:22 +0000] "POST /ewengine/services/EmpwebTransactionService HTTP/1.1" 200 1033 "-" "Java/1.7.0_45" -
+127.0.0.1 - - [20/Oct/2014:20:08:22 +0000] "POST /ewengine/services/EmpwebTransactionService HTTP/1.1" 200 1149 "-" "Java/1.7.0_45" -

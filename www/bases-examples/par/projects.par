@@ -1,0 +1,4 @@
+projects.*=/var/opt/ABCD/bases/projects/data/projects.*
+projects.pft=/var/opt/ABCD/bases/projects/pfts/en/projects.pft
+prologoact.pft=/var/opt/ABCD/bases/www/prologoact.pft
+epilogoact.pft=/var/opt/ABCD/bases/www/epilogoact.pft

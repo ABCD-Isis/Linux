@@ -1,0 +1,7 @@
+agrovoc.*=/var/opt/ABCD/bases/agrovoc/data/agrovoc.*
+
+agrovoc.pft=/var/opt/ABCD/bases/agrovoc/pfts/en/agrovoc.pft
+
+prologoact.pft=/var/opt/ABCD/bases/www/prologoact.pft
+
+epilogoact.pft=/var/opt/ABCD/bases/www/epilogoact.pft

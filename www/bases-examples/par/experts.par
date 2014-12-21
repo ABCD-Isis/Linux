@@ -1,0 +1,7 @@
+experts.*=/var/opt/ABCD/bases/experts/data/experts.*
+
+experts.pft=/var/opt/ABCD/bases/experts/pfts/en/experts.pft
+
+prologoact.pft=/var/opt/ABCD/bases/www/prologoact.pft
+
+epilogoact.pft=/var/opt/ABCD/bases/www/epilogoact.pft

@@ -1,0 +1,7 @@
+PHP.INI variables to be checked for ABCD Digital Library :
+(Note : 25M is the max. limit of TIKA)
+
+post_max_size = 25M 
+upload_max_filesize = 25M   
+document repository (structured into subfolders) to be put into htdocs/bases/collection/ABCDImportRepo.
+after import the processed documents will be moved, preserving the folder-structure, into /htdocs/bases/collection/

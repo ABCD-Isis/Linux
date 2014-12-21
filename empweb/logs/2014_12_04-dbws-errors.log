@@ -1,0 +1,174 @@
+17:21:44.269 INFO   [main] org.mortbay.log.LogImpl.add(LogImpl.java:109) >22> added org.mortbay.log.OutputStreamLogSink@656d2378
+17:21:44.270 INFO   [main] org.mortbay.http.HttpServer.doStart(HttpServer.java:684) >10> Version Jetty/5.1.11
+17:21:44.506 INFO   [main] org.mortbay.util.Container.start(Container.java:74) >15> Started org.mortbay.jetty.servlet.WebApplicationHandler@76a11b29
+17:21:44.532 INFO   [main] org.mortbay.util.Container.start(Container.java:74) >11> Started WebApplicationContext[/ewdbws,EmpWeb Database Web Services]
+17:21:44.533 WARN!! [main] org.mortbay.util.ThreadedServer.start(ThreadedServer.java:518) >12> Failed to start: SocketListener0@0.0.0.0:8085
+17:21:44.533 WARN!! [main] org.mortbay.jetty.Server.main(Server.java:465) >08> EXCEPTION 
+org.mortbay.util.MultiException[java.net.BindException: Address already in use]
+	at org.mortbay.http.HttpServer.doStart(HttpServer.java:686)
+	at org.mortbay.util.Container.start(Container.java:72)
+	at org.mortbay.jetty.Server.main(Server.java:460)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.mortbay.start.Main.invokeMain(Main.java:151)
+	at org.mortbay.start.Main.start(Main.java:476)
+	at org.mortbay.start.Main.main(Main.java:94)
+java.net.BindException: Address already in use
+	at java.net.PlainSocketImpl.socketBind(Native Method)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:376)
+	at java.net.ServerSocket.bind(ServerSocket.java:376)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at org.mortbay.util.ThreadedServer.newServerSocket(ThreadedServer.java:391)
+	at org.mortbay.util.ThreadedServer.open(ThreadedServer.java:477)
+	at org.mortbay.util.ThreadedServer.start(ThreadedServer.java:503)
+	at org.mortbay.http.SocketListener.start(SocketListener.java:204)
+	at org.mortbay.http.HttpServer.doStart(HttpServer.java:716)
+	at org.mortbay.util.Container.start(Container.java:72)
+	at org.mortbay.jetty.Server.main(Server.java:460)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.mortbay.start.Main.invokeMain(Main.java:151)
+	at org.mortbay.start.Main.start(Main.java:476)
+	at org.mortbay.start.Main.main(Main.java:94)
+[0]=java.net.BindException: Address already in use
+	at java.net.PlainSocketImpl.socketBind(Native Method)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:376)
+	at java.net.ServerSocket.bind(ServerSocket.java:376)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at org.mortbay.util.ThreadedServer.newServerSocket(ThreadedServer.java:391)
+	at org.mortbay.util.ThreadedServer.open(ThreadedServer.java:477)
+	at org.mortbay.util.ThreadedServer.start(ThreadedServer.java:503)
+	at org.mortbay.http.SocketListener.start(SocketListener.java:204)
+	at org.mortbay.http.HttpServer.doStart(HttpServer.java:716)
+	at org.mortbay.util.Container.start(Container.java:72)
+	at org.mortbay.jetty.Server.main(Server.java:460)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.mortbay.start.Main.invokeMain(Main.java:151)
+	at org.mortbay.start.Main.start(Main.java:476)
+	at org.mortbay.start.Main.main(Main.java:94)
+
+17:21:44.544 INFO   [main] org.mortbay.http.HttpServer.doStart(HttpServer.java:684) >10> Version Jetty/5.1.11
+17:21:44.637 INFO   [main] org.mortbay.util.Container.start(Container.java:74) >15> Started org.mortbay.jetty.servlet.WebApplicationHandler@69ae04c0
+17:21:44.641 INFO   [main] org.mortbay.util.Container.start(Container.java:74) >11> Started WebApplicationContext[/ewengine,Empweb Engine Web Services]
+17:21:44.641 WARN!! [main] org.mortbay.util.ThreadedServer.start(ThreadedServer.java:518) >12> Failed to start: SocketListener1@0.0.0.0:8086
+17:21:44.641 WARN!! [main] org.mortbay.jetty.Server.main(Server.java:465) >08> EXCEPTION 
+org.mortbay.util.MultiException[java.net.BindException: Address already in use]
+	at org.mortbay.http.HttpServer.doStart(HttpServer.java:686)
+	at org.mortbay.util.Container.start(Container.java:72)
+	at org.mortbay.jetty.Server.main(Server.java:460)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.mortbay.start.Main.invokeMain(Main.java:151)
+	at org.mortbay.start.Main.start(Main.java:476)
+	at org.mortbay.start.Main.main(Main.java:94)
+java.net.BindException: Address already in use
+	at java.net.PlainSocketImpl.socketBind(Native Method)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:376)
+	at java.net.ServerSocket.bind(ServerSocket.java:376)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at org.mortbay.util.ThreadedServer.newServerSocket(ThreadedServer.java:391)
+	at org.mortbay.util.ThreadedServer.open(ThreadedServer.java:477)
+	at org.mortbay.util.ThreadedServer.start(ThreadedServer.java:503)
+	at org.mortbay.http.SocketListener.start(SocketListener.java:204)
+	at org.mortbay.http.HttpServer.doStart(HttpServer.java:716)
+	at org.mortbay.util.Container.start(Container.java:72)
+	at org.mortbay.jetty.Server.main(Server.java:460)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.mortbay.start.Main.invokeMain(Main.java:151)
+	at org.mortbay.start.Main.start(Main.java:476)
+	at org.mortbay.start.Main.main(Main.java:94)
+[0]=java.net.BindException: Address already in use
+	at java.net.PlainSocketImpl.socketBind(Native Method)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:376)
+	at java.net.ServerSocket.bind(ServerSocket.java:376)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at org.mortbay.util.ThreadedServer.newServerSocket(ThreadedServer.java:391)
+	at org.mortbay.util.ThreadedServer.open(ThreadedServer.java:477)
+	at org.mortbay.util.ThreadedServer.start(ThreadedServer.java:503)
+	at org.mortbay.http.SocketListener.start(SocketListener.java:204)
+	at org.mortbay.http.HttpServer.doStart(HttpServer.java:716)
+	at org.mortbay.util.Container.start(Container.java:72)
+	at org.mortbay.jetty.Server.main(Server.java:460)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.mortbay.start.Main.invokeMain(Main.java:151)
+	at org.mortbay.start.Main.start(Main.java:476)
+	at org.mortbay.start.Main.main(Main.java:94)
+
+17:21:44.653 INFO   [main] org.mortbay.log.LogImpl.add(LogImpl.java:109) >22> added org.mortbay.log.OutputStreamLogSink@50984b44
+17:21:44.653 INFO   [main] org.mortbay.http.HttpServer.doStart(HttpServer.java:684) >10> Version Jetty/5.1.11
+17:21:44.798 INFO   [main] org.mortbay.util.Container.start(Container.java:74) >15> Started org.mortbay.jetty.servlet.WebApplicationHandler@6e58f809
+17:21:44.811 INFO   [main] org.mortbay.util.Container.start(Container.java:74) >11> Started WebApplicationContext[/empweb,Empweb GUI in JSP]
+17:21:44.811 WARN!! [main] org.mortbay.util.ThreadedServer.start(ThreadedServer.java:518) >12> Failed to start: SocketListener2@0.0.0.0:8080
+17:21:44.811 WARN!! [main] org.mortbay.jetty.Server.main(Server.java:465) >08> EXCEPTION 
+org.mortbay.util.MultiException[java.net.BindException: Address already in use]
+	at org.mortbay.http.HttpServer.doStart(HttpServer.java:686)
+	at org.mortbay.util.Container.start(Container.java:72)
+	at org.mortbay.jetty.Server.main(Server.java:460)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.mortbay.start.Main.invokeMain(Main.java:151)
+	at org.mortbay.start.Main.start(Main.java:476)
+	at org.mortbay.start.Main.main(Main.java:94)
+java.net.BindException: Address already in use
+	at java.net.PlainSocketImpl.socketBind(Native Method)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:376)
+	at java.net.ServerSocket.bind(ServerSocket.java:376)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at org.mortbay.util.ThreadedServer.newServerSocket(ThreadedServer.java:391)
+	at org.mortbay.util.ThreadedServer.open(ThreadedServer.java:477)
+	at org.mortbay.util.ThreadedServer.start(ThreadedServer.java:503)
+	at org.mortbay.http.SocketListener.start(SocketListener.java:204)
+	at org.mortbay.http.HttpServer.doStart(HttpServer.java:716)
+	at org.mortbay.util.Container.start(Container.java:72)
+	at org.mortbay.jetty.Server.main(Server.java:460)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.mortbay.start.Main.invokeMain(Main.java:151)
+	at org.mortbay.start.Main.start(Main.java:476)
+	at org.mortbay.start.Main.main(Main.java:94)
+[0]=java.net.BindException: Address already in use
+	at java.net.PlainSocketImpl.socketBind(Native Method)
+	at java.net.AbstractPlainSocketImpl.bind(AbstractPlainSocketImpl.java:376)
+	at java.net.ServerSocket.bind(ServerSocket.java:376)
+	at java.net.ServerSocket.<init>(ServerSocket.java:237)
+	at org.mortbay.util.ThreadedServer.newServerSocket(ThreadedServer.java:391)
+	at org.mortbay.util.ThreadedServer.open(ThreadedServer.java:477)
+	at org.mortbay.util.ThreadedServer.start(ThreadedServer.java:503)
+	at org.mortbay.http.SocketListener.start(SocketListener.java:204)
+	at org.mortbay.http.HttpServer.doStart(HttpServer.java:716)
+	at org.mortbay.util.Container.start(Container.java:72)
+	at org.mortbay.jetty.Server.main(Server.java:460)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.mortbay.start.Main.invokeMain(Main.java:151)
+	at org.mortbay.start.Main.start(Main.java:476)
+	at org.mortbay.start.Main.main(Main.java:94)
+
+17:21:48.222 INFO   [Shutdown] org.mortbay.jetty.Server$ShutdownHookThread.run(Server.java:555) >01> Shutdown hook executing
+17:21:48.222 INFO   [Shutdown] org.mortbay.jetty.Server$ShutdownHookThread.run(Server.java:565) >01> Shutdown hook complete
+17:21:49.223 INFO   [Shutdown] org.mortbay.jetty.Server$ShutdownHookThread.run(Server.java:565) >01> Shutdown hook complete
+17:21:50.223 INFO   [Shutdown] org.mortbay.jetty.Server$ShutdownHookThread.run(Server.java:565) >01> Shutdown hook complete
+17:21:51.223 INFO   [Shutdown] org.mortbay.jetty.Server$ShutdownHookThread.run(Server.java:565) >01> Shutdown hook complete
+17:21:52.224 INFO   [Shutdown] org.mortbay.jetty.Server$ShutdownHookThread.run(Server.java:565) >01> Shutdown hook complete
+17:21:53.224 INFO   [Shutdown] org.mortbay.jetty.Server$ShutdownHookThread.run(Server.java:565) >01> Shutdown hook complete

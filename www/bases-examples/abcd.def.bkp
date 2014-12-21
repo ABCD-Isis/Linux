@@ -1,0 +1,7 @@
+VERSION=2.0b
+LEGEND1=2015
+LEGEND2=ONLY FOR TESTING - NOT FOR DISTRIBUTION
+URL1=http://www.abcdwiki.net
+URL2=http://www.icci.org
+MXPATH=/opt/ABCD/www/cgi-bin/
+dubcore=bigisis/
