@@ -1,0 +1,10 @@
+**Thursday 4th of December 2014 04:52:10 PM Operador: abcd
+/central/dataentry/inicio_main.php /opt/ABCD/www/htdocs/central/dataentry/wxis/login.xis IsisScript=/opt/ABCD/www/htdocs/central/dataentry/wxis/login.xis&base=acces&cipar=/opt/ABCD/www/bases-examples/par/acces.par&login=abcd&password=adm&path_db=/opt/ABCD/www/bases-examples/&cttype=s&syspar=/opt/ABCD/www/bases-examples/par/syspar.par
+**Thursday 4th of December 2014 04:52:10 PM Operador: abcd
+/central/dataentry/inicio_base.php /opt/ABCD/www/htdocs/central/dataentry/wxis/administrar.xis IsisScript=/opt/ABCD/www/htdocs/central/dataentry/wxis/administrar.xis&base=marc&cipar=/opt/ABCD/www/bases-examples/par/marc.par&Opcion=status&path_db=/opt/ABCD/www/bases-examples/&cttype=s&syspar=/opt/ABCD/www/bases-examples/par/syspar.par
+**Thursday 4th of December 2014 04:52:12 PM Operador: abcd
+/central/dataentry/fmt.php /opt/ABCD/www/htdocs/central/dataentry/wxis/buscar.xis IsisScript=/opt/ABCD/www/htdocs/central/dataentry/wxis/buscar.xis&cipar=/opt/ABCD/www/bases-examples/par/marc.par&Mfn=1&Opcion=ver&base=marc&Formato=/opt/ABCD/www/bases-examples/marc/pfts/en/admarc&path_db=/opt/ABCD/www/bases-examples/&cttype=s&syspar=/opt/ABCD/www/bases-examples/par/syspar.par
+**Thursday 4th of December 2014 04:52:15 PM Operador: abcd
+/central/copies/copies_add.php /opt/ABCD/www/htdocs/central/dataentry/wxis/imprime.xis IsisScript=/opt/ABCD/www/htdocs/central/dataentry/wxis/imprime.xis&base=marc&cipar=/opt/ABCD/www/bases-examples/par/marc.par&from=1&to=1&Formato=v001&Opcion=rango&path_db=/opt/ABCD/www/bases-examples/&cttype=s&syspar=/opt/ABCD/www/bases-examples/par/syspar.par
+**Thursday 4th of December 2014 04:52:18 PM Operador: abcd
+/central/dataentry/show.php /opt/ABCD/www/htdocs/central/dataentry/wxis/imprime.xis IsisScript=/opt/ABCD/www/htdocs/central/dataentry/wxis/imprime.xis&base=copies&cipar=/opt/ABCD/www/bases-examples/par/copies.par&Expresion=CN_marc_1&Formato=@/opt/ABCD/www/bases-examples/copies/pfts/en/copies.pft&Total=s&Opcion=buscar&from=1&to=20&path_db=/opt/ABCD/www/bases-examples/&cttype=s&syspar=/opt/ABCD/www/bases-examples/par/syspar.par

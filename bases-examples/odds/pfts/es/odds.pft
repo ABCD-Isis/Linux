@@ -1,0 +1,41 @@
+'<table border=0 width=90%>'
+if p(v1) then '<tr><td width=20% valign=top><font face=arial size=2><b>ID del registro</b></td><td valign=top><font face=arial size=2>'v1+|<br>|,'</td>' fi/
+if p(v5) then '<tr><td width=20% valign=top><font face=arial size=2><b>Tipo de literatura</b></td><td valign=top><font face=arial size=2>'v5+|<br>|,'</td>' fi/
+if p(v6) then '<tr><td width=20% valign=top><font face=arial size=2><b>Nivel bibliográfico</b></td><td valign=top><font face=arial size=2>'v6+|<br>|,'</td>' fi/
+if p(v94) then '<tr><td width=20% valign=top><font face=arial size=2><b>Estado de la solicitud</b></td><td valign=top><font face=arial size=2>'v94+|<br>|,'</td>' fi/
+if p(v100) then '<tr><td width=20% valign=top><font face=arial size=2><b>Fecha del pedido</b></td><td valign=top><font face=arial size=2>'v100+|<br>|,'</td>' fi/
+'<tr><td colspan=2 valign=top><font face=arial size=2><b>Publicacion solicitada ------------------</b></td>'/
+if p(v10) then '<tr><td width=20% valign=top><font face=arial size=2><b>Autor de articulo o capítulo</b></td><td valign=top><font face=arial size=2>'v10+|<br>|,'</td>' fi/
+if p(v12) then '<tr><td width=20% valign=top><font face=arial size=2><b>Titulo articulo o capítulo</b></td><td valign=top><font face=arial size=2>'v12+|<br>|,'</td>' fi/
+if p(v16) then '<tr><td width=20% valign=top><font face=arial size=2><b>Autor libro o tesis</b></td><td valign=top><font face=arial size=2>'v16+|<br>|,'</td>' fi/
+if p(v18) then '<tr><td width=20% valign=top><font face=arial size=2><b>Titulo de libro o tesis</b></td><td valign=top><font face=arial size=2>'v18+|<br>|,'</td>' fi/
+if p(v30) then '<tr><td width=20% valign=top><font face=arial size=2><b>Titulo de la revista</b></td><td valign=top><font face=arial size=2>'v30+|<br>|,'</td>' fi/
+if p(v31) then '<tr><td width=20% valign=top><font face=arial size=2><b>Volumen de revista</b></td><td valign=top><font face=arial size=2>'v31+|<br>|,'</td>' fi/
+if p(v32) then '<tr><td width=20% valign=top><font face=arial size=2><b>Nro de revista</b></td><td valign=top><font face=arial size=2>'v32+|<br>|,'</td>' fi/
+if p(v20) then '<tr><td width=20% valign=top><font face=arial size=2><b>pagina de inicio</b></td><td valign=top><font face=arial size=2>'v20+|<br>|,'</td>' fi/
+if p(v21) then '<tr><td width=20% valign=top><font face=arial size=2><b>pagina final</b></td><td valign=top><font face=arial size=2>'v21+|<br>|,'</td>' fi/
+if p(v64) then '<tr><td width=20% valign=top><font face=arial size=2><b>Año de publicacion</b></td><td valign=top><font face=arial size=2>'v64+|<br>|,'</td>' fi/
+if p(v65) then '<tr><td width=20% valign=top><font face=arial size=2><b>Edicion de la obra</b></td><td valign=top><font face=arial size=2>'v65+|<br>|,'</td>' fi/
+'<tr><td colspan=2 valign=top><font face=arial size=2><b>Datos solicitante --------------------------</b></td>'/
+if p(v510) then '<tr><td width=20% valign=top><font face=arial size=2><b>Nombre del soicitante</b></td><td valign=top><font face=arial size=2>'v510+|<br>|,'</td>' fi/
+if p(v630) then '<tr><td width=20% valign=top><font face=arial size=2><b>Cedula de Identidad</b></td><td valign=top><font face=arial size=2>'v630+|<br>|,'</td>' fi/
+if p(v512) then '<tr><td width=20% valign=top><font face=arial size=2><b>Telefono</b></td><td valign=top><font face=arial size=2>'v512+|<br>|,'</td>' fi/
+if p(v520) then '<tr><td width=20% valign=top><font face=arial size=2><b>Categoria del usuario</b></td><td valign=top><font face=arial size=2>'v520+|<br>|,'</td>' fi/
+if p(v525) then '<tr><td width=20% valign=top><font face=arial size=2><b>Areas de interés</b></td>
+      <td valign=top><font face=arial size=2>'v525+|<br>|,'</td>' 
+fi/
+if p(v528) then '<tr><td width=20% valign=top><font face=arial size=2><b>Correo electrónico</b></td><td valign=top><font face=arial size=2>'v528+|<br>|,'</td>' fi/
+if p(v68) then '<tr><td width=20% valign=top><font face=arial size=2><b>Notas del solicitante</b></td><td valign=top><font face=arial size=2>'v68+|<br>|,'</td>' fi/
+'<tr><td colspan=2 valign=top><font face=arial size=2><b>Situación de proceso ---------------</b></td>'/
+if p(v69) then '<tr><td width=20% valign=top><font face=arial size=2><b>Notas internas de proceso</b></td><td valign=top><font face=arial size=2>'v69+|<br>|,'</td>' fi/
+if p(v98) then '<tr><td width=20% valign=top><font face=arial size=2><b>Fecha de atención</b></td><td valign=top><font face=arial size=2>'v98+|<br>|,'</td>' fi/
+if p(v99) then '<tr><td width=20% valign=top><font face=arial size=2><b>Fecha de atencion</b></td><td valign=top><font face=arial size=2>'v99+|<br>|,'</td>' fi/
+if p(v101) then '<tr><td width=20% valign=top><font face=arial size=2><b>Fecha conclusión servicio</b></td><td valign=top><font face=arial size=2>'v101+|<br>|,'</td>' fi/
+if p(v102) then '<tr><td width=20% valign=top><font face=arial size=2><b>Fecha conclusión del servicio</b></td><td valign=top><font face=arial size=2>'v102+|<br>|,'</td>' fi/
+if p(v938) then '<tr><td width=20% valign=top><font face=arial size=2><b>URL con el documento enviado</b></td><td valign=top><font face=arial size=2>'v938+|<br>|,'</td>' fi/
+if p(v900) then '<tr><td width=20% valign=top><font face=arial size=2><b>Fuente de la referencia</b></td><td valign=top><font face=arial size=2>'v900+|<br>|,'</td>' fi/
+if p(v901) then '<tr><td width=20% valign=top><font face=arial size=2><b>Solicitud transferida a</b></td><td valign=top><font face=arial size=2>'v901+|<br>|,'</td>' fi/
+if p(v902) then '<tr><td width=20% valign=top><font face=arial size=2><b>No. de Ident. Pedido transferido</b></td><td valign=top><font face=arial size=2>'v902+|<br>|,'</td>' fi/
+if p(v936) then '<tr><td width=20% valign=top><font face=arial size=2><b>Atendido por</b></td><td valign=top><font face=arial size=2>'v936+|<br>|,'</td>' fi/
+if p(v998) then '<tr><td width=20% valign=top><font face=arial size=2><b>Fecha ultima modificacion</b></td><td valign=top><font face=arial size=2>'v998+|<br>|,'</td>' fi/
+'</table><p>'

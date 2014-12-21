@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<portal id="33" available="yes">
+  <item id="15" available="yes" href="http://www.aku.edu.et">Axum University Website<description>   </description><portal>   </portal></item>
+  <item id="5" available="yes" href="http://www.uem.mz">Universidaed Eduardo Mondlane<description>                  </description><portal>                  </portal></item>
+  <item id="4" available="yes" href="http://www.unilurio.ac.mz/links_pt.htm">Universidade Lurio<description>                  </description><portal>                  </portal></item>
+  <item id="6" available="yes" href="http://www.ucm.ac.mz/">Universidade Católica de Moçambique<description>                 </description><portal>                 </portal></item>
+  <item id="8" available="yes" href="http://www.up.ac.mz/">Universidade Pedagogica<description>              </description><portal>              </portal><item id="11" available="yes">____________________________<description>        </description><portal>        </portal></item></item>
+  <item id="12" available="yes" href="http://search.epnet.com">EBSCO<description>     </description><portal>     </portal></item>
+  <item id="13" available="yes" href="http://www.unesco.org/isis">UNESCO<description>  </description><portal>  </portal></item>
+  <item id="14" available="yes" href="http://www.inasp.info">INASP PERI El.Journals<description>    </description><portal>    </portal></item>
+</portal>
