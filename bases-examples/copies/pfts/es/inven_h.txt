@@ -1,8 +1,0 @@
-No. control
-Base datos
-Signatura
-Inventario
-Situación
-Biblioteca princ.
-Biblioteca sec.
-No. copia

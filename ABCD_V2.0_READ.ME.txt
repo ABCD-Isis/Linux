@@ -17,6 +17,7 @@
 	- creating copies and loanobjects from catalog databases
 	- batch import of documents into dublin-core repository database
 	- split occurrences (create new records based on repeatable field)
+	- check barcodes from copies-database
 3.6 Improved functionality in Central :
 - consistency checking when creating copies/loanobjects
 - availability button working in iAH with Central Loans
@@ -25,10 +26,10 @@
 4.1 : Non-standard CISIS doesn't work when called from Site (Bireme to act on)
 4.2 : Non-standard CISIS doesn't work fully from ISIS-OAI-Provider (Bireme to act on)
 4.3 : Incremental indexing not yet possible in non-standard CISIS databases, full inversion to be used
-4.4 : Windows-version using FFF-database : indexing after editing results in wrong index (full inversion to be used instead)
-4.5 : Debian package 'chmod' not working but attributes can be set manually (chmod -R 777 *)
-4.6 : Title/Author/ControlNo. search not working in EmpWeb
-4.7 : EmpWeb availability button not always working, depending on machine
+4.4 : Windows-version using FFI-database : indexing after editing results in wrong index (full inversion to be used instead)
+4.5 : Title/Author/ControlNo. search not working in EmpWeb
+4.6 : EmpWeb availability button not always working, depending on machine
+
 5. Expected :
 5.1 RFID / SIP2 robot driven circulation management
 5.2 LDAP  automatic user registration and authentication, import of users-lists

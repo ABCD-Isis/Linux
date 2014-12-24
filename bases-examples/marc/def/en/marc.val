@@ -1,8 +1,0 @@
-245:if a(v245) then '<b><font size=3 color=red>Field 245 - Main Title - is missing</font></b>' fi$$|$$true
-###
-100:if a(v100) and a(v110) and a(v111) then '<b><font size=3 color=red>Lack Main Entry: field 100, 110, 111 or 130</font></b>' fi$$|$$false
-###
-8:if ss(1,6,v8)='yymmdd' then '<b><font size=3 color=red>The date in the fixed  field (008)=yymmdd, change to todays date as indicated</font></b>' fi$$|$$true
-###
-:
-###
