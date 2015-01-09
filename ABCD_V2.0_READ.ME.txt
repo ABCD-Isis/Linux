@@ -18,6 +18,7 @@
 	- batch import of documents into dublin-core repository database
 	- split occurrences (create new records based on repeatable field)
 	- check barcodes from copies-database
+	- duplication checker for ControlNumber/barcodes
 3.6 Improved functionality in Central :
 - consistency checking when creating copies/loanobjects
 - availability button working in iAH with Central Loans

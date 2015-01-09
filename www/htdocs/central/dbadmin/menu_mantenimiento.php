@@ -134,11 +134,11 @@ function EnviarForma(Opcion,Mensaje){
 				
 				document.admin.base.value=base
 				document.admin.cipar.value=base+".par"
-				document.admin.action="vmxISO_import.php"
+				document.admin.action="vmxISO_load.php"
 				document.admin.target=""
 				
 				break;
-				case "isoexport":    //Marino ISO export
+case "isoexport":    //Marino ISO export
 				
 				document.admin.base.value=base
 				document.admin.cipar.value=base+".par"
@@ -146,7 +146,7 @@ function EnviarForma(Opcion,Mensaje){
 				document.admin.target=""
 				
 				break;
-				case "splitoccs":    //Marcos splitoccs
+case "splitoccs":    //Marcos splitoccs
 
 				document.admin.base.value=base
 				document.admin.cipar.value=base+".par"
@@ -291,9 +291,8 @@ echo "<font color=white>&nbsp; &nbsp; Script: dbadmin/menu_mantenimiento.php";
 			<li><a href='Javascript:EnviarForma("addcopiesdatabase","<?php echo $msgstr["addCPfromDB_mx"]?>")'><?php echo $msgstr["addCPfromDB_mx"]?></a></li> 			
 			<li><a href='Javascript:EnviarForma("isoimport","<?php echo "ImportISO MX"?>")'><?php echo "Import ISO with MX"?></a></li>
 <li><a href='Javascript:EnviarForma("isoexport","<?php echo "ExportISO MX"?>")'><?php echo "Export ISO with MX"?></a></li>
-//<li><a href='Javascript:EnviarForma("importdoc","<?php echo "Import Document"?>")'><?php echo "Import Document"?></a></li>
-<li><a href='Javascript:EnviarForma("cleandb","<?php echo "Compact DB"?>")'><?php echo "Compact DB"?></a></li>
-             <li><a href='Javascript:EnviarForma("addloanobj","<?php echo "Add to loanobjects"?>")'><?php echo "Add to loanobjects"?></a></li>
+<li><a href='Javascript:EnviarForma("importdoc","<?php echo "Import Document"?>")'><?php echo "Import Document"?></a></li>
+<li><a href='Javascript:EnviarForma("cleandb","<?php echo "Clean DB"?>")'><?php echo "Clean/Compact DB"?></a></li>
 			<?php
 			}
 			if ($arrHttp["base"]=="copies") {
