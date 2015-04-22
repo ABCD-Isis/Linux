@@ -73,7 +73,6 @@ if (isset($arrHttp["tag30"])){	$inven=explode("\n",$arrHttp["tag30"]);
 		CrearCopia($cn,$max_inventory_length);
 	}
 }
-echo "<br><br><b>".$msgstr["r_recsel"].":</b><br>";
 echo "<p>".$cont_database;
 
 echo "</div></div>";
@@ -84,17 +83,16 @@ echo "\n<script>top.toolbarEnabled=\"\"</script>\n";
 //=================================================================
 
 function CrearCopia($cn,$max_inventory_length){
-global $msgstr,$arrHttp,$xWxis,$Wxis,$db_path;
+global $msgstr,$arrHttp,$xWxis,$Wxis,$wxisUrl,$db_path;
 	$Mfn="" ;
 	$cn=str_pad($cn, $max_inventory_length, '0', STR_PAD_LEFT);
+	echo "<br>".$msgstr["createcopies"].": ";
+	echo $msgstr["inventory"].": $cn";
 	// Se verifica si ese número de inventario no existe
-	$res=BuscarCopias($cn);		
+	$res=BuscarCopias($cn);
 	if ($res>0){
-		echo "<br></br><font color=red> &nbsp;".$msgstr["errEXCopy"];
-		echo "</br>".$msgstr["inventory"].": $cn </br></font>";	
+		echo "<font color=red> &nbsp;".$msgstr["invdup"]."</font>";
 	}else{
-	    echo "<br><b>".$msgstr["copiescreated"]."</b> </br>";
-	    echo $msgstr["inventory"].": $cn </br>";
 		$ValorCapturado="";
 		foreach ($arrHttp as $var=>$value){
 			if (substr($var,0,3)=="tag"){
@@ -109,10 +107,10 @@ global $msgstr,$arrHttp,$xWxis,$Wxis,$db_path;
 		include("../common/wxis_llamar.php");
 		foreach ($contenido as $linea){
 			if (substr($linea,0,4)=="MFN:") {
-				echo "Mfn: <a href=../dataentry/show.php?base=copies&Mfn=".trim(substr($linea,4))." target=_blank>".trim(substr($linea,4))."</a>";
+				echo " &nbsp; Mfn: <a href=../dataentry/show.php?base=copies&Mfn=".trim(substr($linea,4))." target=_blank>".trim(substr($linea,4))."</a>";
 	    		$Mfn.=trim(substr($linea,4))."|";
 			}else{
-				if (trim($linea!="")) echo $linea."<br>";
+				if (trim($linea!="")) echo $linea."\n";
 			}
 		}
    	}
@@ -149,7 +147,7 @@ global $db_path;
 }
 
 function BuscarCopias($inventario){
-global $xWxis,$db_path,$Wxis;
+global $xWxis,$db_path,$wxisUrl,$Wxis;
 	if ($inventario!=""){		$Prefijo="IN_".$inventario;	}else{		$Prefijo='ORDER_'.$order.'_'.$suggestion.'_'.$bidding;
 	}
 	$IsisScript= $xWxis."ifp.xis";
@@ -158,10 +156,8 @@ global $xWxis,$db_path,$Wxis;
 	include("../common/wxis_llamar.php");
 	foreach ($contenido as $linea){
 		if (trim($linea)!=""){
-			//$pre=trim(substr($linea,0,strlen($Prefijo)));
-			$exp=explode('|',$linea);
-			$pre=$exp[0];
-			if ($pre==strtoupper($Prefijo)){
+			$pre=trim(substr($linea,0,strlen($Prefijo)));
+			if ($pre==$Prefijo){
 				$l=explode('|',$linea);
 				return $l[1];
 				break;

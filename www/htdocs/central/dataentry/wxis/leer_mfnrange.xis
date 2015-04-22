@@ -1,5 +1,5 @@
 <IsisScript>
-	<trace>xOn</trace>
+
 	<section>
    		<field action=cgi tag=5015>cipar</field>
    		<field action=cgi tag=5016>syspar</field>
@@ -15,6 +15,7 @@
         <field action=cgi tag=1>path_db</field>
 		<display><pft>if p(v9088) then 'Content-type: text/html'/# fi</pft></display>
 <display><pft></pft></display>
+		<trace>xOn</trace>
      	<parm name=cipar>
       		<pft>if p(v5016) then replace(s(cat(v5016)),'%path_database%',v1),fi,/replace(s(cat(v5015)),'%path_database%',v1)/</pft>
       	</parm>
@@ -25,8 +26,8 @@
 				<parm name=db><pft>v5001</pft></parm>
 				<parm name=from><pft>v2000</pft></parm>
 				<parm name=to><pft>v2001</pft></parm>
-				<parm name="buffersize">800000</parm>
-                <parm name=MAX_TMP_STRING>800000</parm>
+				<parm name="buffersize">200000</parm>
+                <parm name=MAX_TMP_STRING>200000</parm>
                 <field action=define tag=1001>Isis_Current</field>
 				<field action=define tag=1002>Isis_Total</field>
             	<field action=define tag=1102>Isis_Status</field>

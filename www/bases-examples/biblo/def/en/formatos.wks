@@ -1,8 +1,13 @@
-mm|Monografía
-ma|Analítica de monografía
-cc|Colección
-mc|Monografía de colección
-ss|Publicación seriada
-sa|Analítica de seriada
-tm|Tesis
-tc|Tabla de contenido
+e_doc|Electronic documents|
+mm|Monogr.
+ma|Analytical Monogr.|
+cc|Collection
+mc|Monogr. of coll.
+ss|Serial publ.
+sa|Anal. of series
+tm|Thesis
+tc|Table of contents
+CC|Collection|
+MC|Monogr. Collect.|
+SA|Serial Anal.|
+TM|Thesis monogr.|

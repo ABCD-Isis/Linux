@@ -1,5 +1,14 @@
 #!/bin/sh
 #
+### BEGIN INIT INFO
+# Provides: jetty_empweb
+# Required-Start: $remote_fs $syslog
+# Required-Stop: $remote_fs $syslog
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: Start EmpWeb ab boot ot time
+# Description: Enable service provided by Jetty.
+### END INIT INFO
 # chkconfig: 333 91 35
 # description: Starts and stops Empweb
 #

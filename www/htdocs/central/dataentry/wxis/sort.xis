@@ -58,7 +58,7 @@
 						<field action=import tag=5001>5001</field>
 						<field action=import tag=3030>3030</field>
 						<display>
-						  	<pft type=reload><pft>'REF([V5001]val(v1^a),'v3030',)'</pft></pft>
+							<pft type=reload><pft>'REF([V5001]val(v1^a),'v3030',)'</pft></pft>
 						</display>
 					</loop>
 				</do>
@@ -74,8 +74,8 @@
            		<parm name=db><pft>v5001</pft></parm>
            		<parm name=from><pft>v2000</pft></parm>
 				<parm name=to><pft>v2001</pft></parm>
-				<parm name="buffersize">800000</parm>
-                <parm name=MAX_TMP_STRING>800000</parm>
+				<parm name="buffersize">200000</parm>
+                <parm name=MAX_TMP_STRING>200000</parm>
                 <loop>
                     <field action=cgi tag=3035>sortkey</field>
 			 		<list action=load type=sort>

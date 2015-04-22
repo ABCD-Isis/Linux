@@ -89,11 +89,11 @@ a.tooltip span { border-radius:4px; -moz-border-radius: 4px; -webkit-border-radi
        adding a calendar a matter of 1 or 2 lines of code. -->
   <script type="text/javascript" src="../dataentry/calendar/calendar-setup.js"></script>
 
-<script language=javascript src=../dataentry/js/campos.js></script>
+<script language=javascript src=../dataentry/js/campos.js?<?php echo time(); ?>></script>
 <script language=Javascript src=../dataentry/js/windowdhtml.js></script>
 <script language=Javascript src=../dataentry/js/lr_trim.js></script>
 <script language=javascript src=../dataentry/fckeditor.js></script>
-<script type="text/javascript" src="../dataentry/js/textcounter.js"></script>
+<script type="text/javascript" src="../dataentry/js/textcounter.js?<?php echo time(); ?>"></script>
 
 <?php if (file_exists("../dataentry/js/".$arrHttp["base"].".js"))
 	echo "<script language=javascript src=".$arrHttp["base"].".js></script>\n";
@@ -412,7 +412,7 @@ function CapturarRegistro(){
 	    Separa="&delimitador="+Separa
 	    Prefijo=Separa+"&tagfst="+tag+"&prefijo="+Prefijo
 	    myleft=screen.width-600
-		url_indice="capturaclaves.php?opcion=autoridades&base="+db+"&cipar="+cipar+"&Tag="+tag+Prefijo+"&postings="+postings+"&lang="+lang+"&repetible="+Repetible+"&Formato="+Formato+"&subcampos="+Subc+"&baseactiva="+baseactiva
+		url_indice="../dataentry/capturaclaves.php?opcion=autoridades&base="+db+"&cipar="+cipar+"&Tag="+tag+Prefijo+"&postings="+postings+"&lang="+lang+"&repetible="+Repetible+"&Formato="+Formato+"&subcampos="+Subc+"&baseactiva="+baseactiva
 		msgwin=window.open(url_indice,"Indice","width=650, height=530,  scrollbars, status, resizable location=no, left="+myleft)
 		msgwin.focus()
 		return

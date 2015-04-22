@@ -2,7 +2,7 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-  <title>Solicitud de documento</title>
+  <title>Document request</title>
   <script>
   	  function PresentarDocumento(){
   	  	msgwin=window.open("","PDFDOC","width=800,height=800,scrollbars,resizable")
@@ -23,18 +23,18 @@
 	function LeerUsuario($usuario, $db_path){	
 		global $xWxis,$wxisUrl,$Wxis;	
 		$contenido="";
-		$db_path ="/kunden/homepages/9/d502990860/htdocs/".$db_path;
+		$server = "http://41.89.160.10:9090/";
+		$db_path = $db_path;
 		$IsisScript=$xWxis."buscar.xis";	
 
 		// v35 = code, v30 = nombre, v160 = email, v18 =  fecha iso validez, v140 = telefono, v10 = tipo de  usuario categoria
 		//$formato="v35,'|',v30,'|',v160,'|',v18,'|',v140,'|',v10";		
 		$formato="v20";
 		$formato=urlencode($formato);
-		
 		$prefix="CO_";
-		$par_path =  "/kunden/homepages/9/d502990860/htdocs/ABCD/bases/demo_nocopies/par/";
+		$par_path =  "/var/opt/ABCD/bases/par/";
 		$query = "&Expresion=".$prefix.trim($usuario)."&base=users&cipar=".$par_path."users.par&Pft=$formato";	
-		var_dump($query);
+//		var_dump($query);
 		
 		$IsisScript=$xWxis."cipres_usuario.xis";	
 		include("../common/wxis_llamar.php");	
@@ -49,13 +49,13 @@ $error="";
 //$resultado=LeerUsuario($arrHttp["usuario"],$config["USER_SEARCH"],$config["USER_DISPLAY"],$config["DB_PATH"]);
 $resultado = LeerUsuario($arrHttp["usuario"], $config["DB_PATH"]);
 
-var_dump($resultado);
-echo "<hr>";
+//var_dump($resultado);
+//echo "<hr>";
 
 // el usuario no está en la BD
 if (count($resultado)==0 or trim($resultado[0])==""){
 	$error="S";
-	echo "<font color=darkred><P>".$arrHttp["usuario"].": "."No está registrado como socio de la Biblioteca";
+	echo "<font color=darkred><P>".$arrHttp["usuario"].": "."User not registered";
 	echo "<p><a href=javascript:history.back()>Regresar</a>";
 	die;
 }
@@ -108,7 +108,7 @@ if ($fecha_actual> $fecha_validez) {
 */
 
 echo '<script type="text/javascript" src="../odds/js/odds.js"></script>';
-echo "<a id='redirect_link' href=\"JavaScript:newPopup('../odds/form_odds.php?lang=es&".$parametersODDS."',1250, 645)\">Solicitud de copia</a>";
+echo "<a id='redirect_link' href=\"JavaScript:newPopup('../odds/form_odds.php?lang=es&".$parametersODDS."',1250, 645)\">Request for copy</a>";
 
 echo '<script type="text/javascript">';
 echo "document.getElementById('redirect_link').click();";

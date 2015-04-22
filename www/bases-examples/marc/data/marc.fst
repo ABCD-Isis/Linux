@@ -52,3 +52,6 @@
 990 0 (|NI=|v900^n/) 
 901 0 mpu,(if iocc<100 then |UB_|v900^o|%|/ else break fi)/(if iocc<100 then v900^o|%|/ else break fi) 
 902 0 mpu,(if iocc<100 then |PR_|v900^r|%|/ else break fi) 
+903 0 v1
+905 0 v100^a/, v110^a/, v111^a/, (v700^a/)
+945 0 v245^a

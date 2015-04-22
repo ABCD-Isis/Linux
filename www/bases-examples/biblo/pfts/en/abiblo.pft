@@ -1,15 +1,15 @@
 '<table width=98% border=0 cellpadding=0 cellspacing=0 class=td>'/
 '<tr>'/
-'<td>Control number</td>'
-'<td  valign=top>'v2'</td>'/
-'<td class=textbody03 colspan=3 >'
-'<font face=verdana color=red size=-1><b>Registro: ',f(mfn,1,0)'</a>',"    ("v1001" / "v1002")" '</b></td>'/
+'<td width=5%>CN: </td>'
+'<td  width=10% valign=top>'v2'</td>'/
+'<td width=85% class=textbody03 colspan=3 >'
+'<font face=verdana color=red size=-1><b>Record: ',f(mfn,1,0)'</a>',"    ("v1001" / "v1002")" '</b></td>'/
 '<tr>'
 '<td valign=top  class=td colspan=2>',/
 '<br>'/ 
- (if p(v800) then '<img src="../../bases/biblo/imagen/'v800^*'"  width=150><br>' else '<ximg src=../imagenes/blank.gif width=150>' / fi/)
+ (if p(v800) then '<img src="/docs/biblo/dr/images/'v800^*'"  width=150><br>' else '<ximg src=../imagenes/blank.gif width=150>' / fi/)
 '</td>'
-'<td width=1%  align=center> </td>'
+'<td width=10%  align=center> </td>'
 '<td   align=left valign=top width=84% class=td>'/
 '<p>'/
 if p(v12) then '<b> ' mhl,V12," = "v13,mpl '</b> ' else 
@@ -52,7 +52,7 @@ if v4='K' or v6='s' then
 
       " / "D29,(V29^b|. |,v29^*+|; |),".-- "v39+|, |," : "v38,".--  "v31,", "v32," ("v43")" ,
 
-      "<br><b> Situación </b> "v300,
+      "<br><b> Situation </b> "v300,
 
     fi/ 
 
@@ -62,7 +62,7 @@ if v4='K' or v6='s' then
 
     if p(v160) then,
 
-      '; Tutor: '
+      '; Supervisor: '
 
     (if p(v160) then v160^b,| |v160^* , |, |v160^r if iocc<>nocc(v160) then '; ' fi fi)
 
@@ -71,14 +71,14 @@ if v4='K' or v6='s' then
 
 
 
-    " .-- "v41," .--"v39+|; |," : "v38+|; |,", "v43,".-- "v20," : "v42,".-- "v73,".- Serie: "V22^*,", "v22^n,
+    " .-- "v41," .--"v39+|; |," : "v38+|; |,", "v43,".-- "v20," : "v42,".-- "v73,".- Series: "V22^*,", "v22^n,
 
 
 
 
 if (v6='c' or v6='mc') and v4='M'  then 
 
-    ".--  <b> En : </b> "v25," / "d23,(|; |+v23^b,| |v23^*), |. -- |v41,|-- |v39,|: |V38|, |,V43,".-- "V27,".-- Serie: "V22^*,", "v22^n,
+    ".--  <b> En : </b> "v25," / "d23,(|; |+v23^b,| |v23^*), |. -- |v41,|-- |v39,|: |V38|, |,V43,".-- "V27,".-- Series: "V22^*,", "v22^n,
 
 fi, 
 
@@ -100,9 +100,9 @@ if V4='C'  then,
 
       ".-- "v39+|, |," : "v38+|; |," .-- "v42,".-- "v73 ,
 
-      "<br>Años en existencia "v43+|; |,
+      "<br>Age in years "v43+|; |,
 
-      "<br>Volumenes  "v27+|; |,
+      "<br>Volumes  "v27+|; |,
 
    fi,  
 
@@ -124,9 +124,9 @@ if v4='V' then
 
        
 
-        "<b> Distribuidor: </b> "d430,(v430^*,| /  |v430^p+|; |),
+        "<b> Distributor: </b> "d430,(v430^*,| /  |v430^p+|; |),
 
-       "<b> Dirigido a: </b> "d440,(v440+|; |),
+       "<b> Sent to: </b> "d440,(v440+|; |),
 
 fi  
 
@@ -134,13 +134,13 @@ fi
 
 if p(v53)  then,  
 
- "<br><b> Evento: </b> "v53," ("v56," : "v54+|. |") ",".- "v52+|; |    fi,
+ "<br><b> Event: </b> "v53," ("v56," : "v54+|. |") ",".- "v52+|; |    fi,
 
 
 
 if p(v59)  then,
 
- "<br><b> Proyecto: </b> "v59^*," / "v59^s,", "v60," /  "v58+|; |  fi,
+ "<br><b> Project: </b> "v59^*," / "v59^s,", "v60," /  "v58+|; |  fi,
 
 
 
@@ -148,17 +148,17 @@ if p(v50)  then/
 
   if v153:'A' then,
 
-    "<br> Trabajo de Ascenso presentado ante "v50,". "V150,". "V152,
+    "<br> Paper presented for  "v50,". "V150,". "V152,
 
-    ", para ascender a la categoría de "V51      fi,
+    ", to promote to the category of "V51      fi,
 
-  if v153:'T' then  "<br> Tesis presentada ante "v50,". "V150,". "V152,
+  if v153:'T' then  "<br> Thesis presented for "v50,". "V150,". "V152,
 
-   ", para obtener el grado de "V51     fi,
+   ", to obtain the grade of "V51     fi,
 
-  if v153:'I'  then  "<br> Informe de Pasantía presentado ante "v50,". "V150,". "V152,
+  if v153:'I'  then  "<br> Report presented for "v50,". "V150,". "V152,
 
-    ", para obtener el grado de "V51   fi,
+    ", to obtain the grade of "V51   fi,
 
 fi,
 
@@ -169,14 +169,14 @@ fi,
 
 /
 
-if p(v76)  or p(v79) then '<br><i>Descrpiptores:</i> ',
+if p(v76)  or p(v79) then '<br><i>Descriptors:</i> ',
 
     (v76+|;   |/)
     (if p(v79) then |;   |+v79^*,|--|v79^w,|--|v79^x,|--|v79^y,|--|v79^z  fi )/,,
 
     if p(v80) or p(v81) then
 
-       '<br><i>Categoría temática:</i>'/
+       '<br><i>Theme :</i>'/
 
     fi/
 
@@ -190,7 +190,7 @@ fi,
 
 
 
-if p(v77)  then '<br>Datos estadísticos: ',    
+if p(v77)  then '<br>Statistical Data: ',    
 
     (v77+|;   |/),/
 
@@ -201,15 +201,15 @@ fi/
 
 
 if p(v82) or p(v85) then  
-      '<br>Categoría geográfica: '
+      '<br>Geogr. category: '
       (v82+|;   |/)
       (v85+|;   |/)
 fi/
 
 if p(v104) then  
- '<br><b> Ubicación: </b> ',(v104^*+|; |)/ '  'fi,
+ '<br><b> Location: </b> ',(v104^*+|; |)/ '  'fi,
 if p(v3) then,
- '<br><b> Solicite el material por este código: 'v3^*,"."v3^b,"."v3^c,"."v3^d'</b>' fi,
+ '<br><b> Request this material by code: 'v3^*,"."v3^b,"."v3^c,"."v3^d'</b>' fi,
    
 
 if  p(v72) then
@@ -220,7 +220,7 @@ fi/
   
 
   if  p(v36)  then
- 	'<p>Tabla de contenido:'	
+ 	'<p>Table of contents:'	
       '<ul>'/
 
       (if p(v36) then '<li>' fi, v36^*,| //  |v36^b ,|  |v36^c,|  |v36^d,| |v36^e,|; |v36^f,|  |v36^g,|  |v36^l, |  |v36^m,|  |v36^n),
@@ -229,8 +229,8 @@ fi/
    fi/
 '<p>'
 /*	if p(v800) or p(v810) or p(v840) or (v4='K'  or p(v750)) and v3030<>'w' then '<p>' fi */
-	(if p(v810) then '<a href="../../bases/biblo/texto/'v810^*'" target=top>'/if p(v810^d) then v810^d else v810^* fi'</a><br>' fi/)/
-	(if p(v800) then '<a href="../../bases/biblo/imagen/'v800^*'" target=top>'/if p(v800^d) then v800^d else v800^* fi'</a><br>' fi/)/
+	(if p(v810) then 'Full text : <a href="/docs/biblo/dr/text/'v810^*'" target=top>'/if p(v810^d) then v810^d else v810^* fi'</a><br>' fi/)/
+	(if p(v800) then '<a href="/docs/biblo/dr/images/'v800^*'" target=top>'/if p(v800^d) then v800^d else v800^* fi'</a><br>' fi/)/
 	(if p(v840) then '<a href="'v840^*'" target=top>'/if p(v840^d) then v840^d else v840^* fi'</a><br>' fi/)/
 	if (v4='K'  or p(v7500))  and val(v1002)>1 then 
 	  if v4<>'K' then '<b>'v30'</b>  ' fi
@@ -247,6 +247,5 @@ fi/
 '</tr>'
 '</table>'/ 
 '</span>'/
-'<br><br>'/   
-v101|<br>|         
+'<br><br>'/            
 

@@ -16,9 +16,9 @@ $result = $client->call(
     array('id' =>'ABX-6272,ABX-6362,')
 );
 
-echo $client->request;
-echo $client->response;
-
+echo "<p>Request=".$client->request;
+echo "<p>Response=".$client->response;
+echo "<p>Result=";
 print_r($result);
 
 

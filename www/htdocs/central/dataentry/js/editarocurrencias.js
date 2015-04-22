@@ -244,16 +244,17 @@ function Redraw(xsalida,newSc,add_name){
        				html+="<input type=text class=SubC  size="+xsize+" name="+TagCampo+" id=t"+C_Sc+"_"+M+" value='"+valor+"' >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"       		}
        	}
 
-       	if (is_marc!="S" || (i>2 || C_Sc!=1 && C_Sc!=2 && is_marc=="S")){       		//html+="at"+C_Sc+"_"+M	    	html+="<select name=agregar id=at"+C_Sc+"_"+M+" onChange=AgregarSubcampo(this,"+j+") style=width:100px>"
-  			html+="<option value=''>add"
-    		for (ia=0;ia<Tx[5].length;ia++){
-     			sca=Tx[5].substr(ia,1)
-       			if (ia>1 || (Tx[5].substr(0,1)!=1 && Tx[5].substr(0,1)!=2))
-       				if (sca!="-")
-           				html+="<option value="+Tx[5].substr(ia,1)+">"+Tx[5].substr(ia,1)+" "+Desc_sc[sca]
-        	}
-        	if (C_Sc!="-"){
-	        	html+="</select> &nbsp;<a href=javascript:DeleteSubfield('t"+C_Sc+"_"+M+"')><img src=../dataentry/img/delete_occ.gif border=0 ></a>"
+       	if (is_marc!="S" || (i>2 || C_Sc!=1 && C_Sc!=2 && is_marc=="S")){       		//html+="at"+C_Sc+"_"+M	    	if (is_marc=="S"){	    		html+="<select name=agregar id=at"+C_Sc+"_"+M+" onChange=AgregarSubcampo(this,"+j+") style=width:100px>"
+  				html+="<option value=''>add"
+    			for (ia=0;ia<Tx[5].length;ia++){
+     				sca=Tx[5].substr(ia,1)
+       				if (ia>1 || (Tx[5].substr(0,1)!=1 && Tx[5].substr(0,1)!=2))
+       					if (sca!="-")
+           					html+="<option value="+Tx[5].substr(ia,1)+">"+Tx[5].substr(ia,1)+" "+Desc_sc[sca]
+        		}
+        		if (C_Sc!="-"){
+	        		html+="</select> &nbsp;<a href=javascript:DeleteSubfield('t"+C_Sc+"_"+M+"')><img src=../dataentry/img/delete_occ.gif border=0 ></a>"
+        		}
         	}
         }
 	}

@@ -42,40 +42,13 @@ if ($tag_ctl!=""){
 ?>
 <script language=javascript>
 top.toolbarEnabled="N"
-function Validar(){
-	if (Trim(document.forma1.copies.value)=="" && Trim(document.forma1.tag10.value=="")){
-		alert("<?php echo $msgstr["err_copies"]?>")
-		return "N"
-	}
+function Validar(){	if (Trim(document.forma1.copies.value)=="" && Trim(document.forma1.tag10.value=="")){		alert("<?php echo $msgstr["err_copies"]?>")
+		return "N"	}
 	if (Trim(document.forma1.tag1.value)==""){
 		alert("<?php echo $msgstr["err_objectctl"]?>")
 		return "N"
 	}
-	mydiv = document.getElementById("INE");	
-	inv = document.forma1.tag30;
-	if (inv.value=="") {
-	mydiv.innerHTML='</br>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $msgstr["errINE"];?></br></br>';
-	mydiv.style.display='block';
-	inv.focus();
-	return "N";
-	}
-invdup=0;
-invnumbers=document.getElementById("INVA").value;
-if (invnumbers!="~"){
-mydiv.innerHTML='</br>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $msgstr["errEXCopyS"];?></br></br></br>';
-mydiv.style.display='block';
-inv.focus();
-return "N";
-}	
-	check=-1;
-	for(i=0;i<document.forma1.tag200.length;i++){	
-    if(document.forma1.tag200[i].checked) check=i;}	
-	if (check==-1) {	
-	mydiv.innerHTML='</br>&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $msgstr["errSE"];?></br></br>';
-	mydiv.style.display='block';	
-	return "N";
-	}
-}
+}
 
 function RefrescarPicklist(tabla,Ctrl,valor){
 	ValorOpcion=valor
@@ -154,11 +127,8 @@ if ($err_copies!="Y" and $error==""){
 				<span><strong><?php echo $msgstr["actualizar"]?></strong></span>
 			</a>
 	<?php
-}else{
-?>
-	<a href='javascript:top.toolbarEnabled="";top.Menu("same")' class="defaultButton backButton">
-		<img src="../images/defaultButton_iconBorder.gif" alt="" title="" /><?php echo $msgstr["back"]?></a>
-<?php
+}else{?>	<a href='javascript:top.toolbarEnabled="";top.Menu("same")' class="defaultButton backButton">
+		<img src="../images/defaultButton_iconBorder.gif" alt="" title="" /><?php echo $msgstr["back"]?></a><?php
 }
 echo "	</div>
 		<div class=\"spacer\">&#160;</div>
@@ -184,19 +154,13 @@ if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"]))
 <input type=hidden name=valor value="">
 
 <div class="middle form">
-<div name="INE" id="INE" style="color:#990000; display:none; font-style:italic; font-weight:bold;"></div>
-<input type=hidden name=INVA id=INVA value="<?php echo $arrHttp["Mfn"]?>~">
 <?php
-if ($error!=""){
-	echo "<script>top.toolbarEnabled=\"\"</script>\n";
+if ($error!=""){	echo "<script>top.toolbarEnabled=\"\"</script>\n";
 	echo "<dd><h4>".$msgstr[$error]."</h4>";
-	die;
-}
+	die;}
 if ($err_copies=="Y"){
-	echo "<script>top.toolbarEnabled=\"\"</script>\n";
-	echo "<dd><h4>".$msgstr["err_cannotaddcopies"]."</h4>";
-	die;
-}
+	echo "<script>top.toolbarEnabled=\"\"</script>\n";	echo "<dd><h4>".$msgstr["err_cannotaddcopies"]."</h4>";
+	die;}
 echo "\n<div class=\"searchBox\">\n";
 if ($AI=="Y"){
 	echo "<label for=\"addCopies\">
@@ -261,14 +225,10 @@ global $tag_ctl,$pref_ctl,$arrHttp,$db_path,$AI,$lang_db,$msgstr,$error;
 	$fp=file($archivo);
 	$tag_ctl="";
 	$pref_ctl="CN_";
-	foreach ($fp as $linea){
-		$linea=trim($linea);
+	foreach ($fp as $linea){		$linea=trim($linea);
 		$ix=strpos($linea,"\"CN_\"");
-		if ($ix===false){
-			$ix=strpos($linea,'|CN_|');
-		}
-		if ($ix===false){
-		}else{
+		if ($ix===false){			$ix=strpos($linea,'|CN_|');		}
+		if ($ix===false){		}else{
 			$ix=strpos($linea," ");
 			$tag_ctl=trim(substr($linea,0,$ix));
 			break;
@@ -302,17 +262,10 @@ global $tag_ctl,$pref_ctl,$arrHttp,$db_path,$AI,$lang_db,$msgstr;
 	$AI="";
 	foreach ($fp as $linea){       //SEE IF THE INVENTORY NUMBER OF THE COPIES DATABASE IS AUTOINCREMENT
 		$l=explode('|',$linea);
-		if ($l[1]=="30"){
-		   	if ($l[0]=="AI" || $l[7]=="AI") $AI="Y";
+		if ($l[1]=="30"){		   	if ($l[0]=="AI" || $l[7]=="AI") $AI="Y";
 		}
 
 	}
 }
+
 ?>
-<script language=javascript>
-document.forma1.tag200[2].disabled = true;
-function CheckInventory()
-{
-CheckInventoryDup(document.getElementById("tag30").value,1);
-}
-</script>

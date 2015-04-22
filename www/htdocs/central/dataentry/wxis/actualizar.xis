@@ -89,8 +89,10 @@
                 <parm name=MAX_TMP_STRING>800000</parm>
           		<field action=define tag=1101>Isis_Lock</field>
            		<field action=define tag=1102>Isis_Status</field>
+           		<display><pft>ALL</pft></display>
            		<update>
            			<field action=import tag=9010>9010</field>
+           			<field action=import tag=3030>3030</field>
            			<proc><pft>v9010</pft></proc>
            			<proc><pft>'d9010'</pft></proc>
                 	<write>Unlock</write>
@@ -99,6 +101,7 @@
 							#'MFN:'F(MFN,1,0)/
 						</pft>
 					</display>
+					<display><pft type=reload><pft>if p(v3030) then '@'v3030'.pft' fi</pft></pft></display>
            		</update>
         	</do>
         <flow action="exit">1</flow>

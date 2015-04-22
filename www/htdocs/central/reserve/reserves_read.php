@@ -1,7 +1,6 @@
 <?php
 function MostrarRegistroCatalografico($dbname,$CN){
 global $msgstr,$arrHttp,$db_path,$xWxis,$tagisis,$Wxis,$wxisUrl,$lang_db;
-	if ((!isset($_SESSION["lang"])) and ($lang_db="")){$_SESSION["lang"]="en";$lang_db="en";}
 	$pref_cn="";
 	$archivo=$db_path.$dbname."/loans/".$_SESSION["lang"]."/loans_conf.tab";
 	if (!file_exists($archivo)) $archivo=$db_path.$dbname."/loans/".$lang_db."/loans_conf.tab";
@@ -39,8 +38,7 @@ global $db_path,$lang_db;
 	$archivo=$db_path.$base."/pfts/".$_SESSION["lang"]."/rsvr_h.txt";
 	if (!file_exists($archivo))
 		$archivo=$db_path.$base."/pfts/".$lang_db."/rsvr_h.txt";
-	if (file_exists($archivo)){
-		$fp=file($archivo);
+	if (file_exists($archivo)){		$fp=file($archivo);
 		foreach ($fp as $value){
 			$value=trim($value);
 			if (trim($value)!=""){
@@ -49,8 +47,7 @@ global $db_path,$lang_db;
 			}
 		}
 	}else{
-		$archivo=$db_path.$base."/pfts/".$_SESSION["lang"]."/tit_reserve_01.tab";   //ESTO SE HACE PARA EL CASO DE QUE EL ARCHIVO DE TITULOS VENGA EN tit_reserve.tab, POR  COMPATIILIDAD CON LA VERSIÓN ANTERIOR
-		if (!file_exists($archivo))
+		$archivo=$db_path.$base."/pfts/".$_SESSION["lang"]."/tit_reserve_01.tab";   //ESTO SE HACE PARA EL CASO DE QUE EL ARCHIVO DE TITULOS VENGA EN tit_reserve.tab, POR  COMPATIILIDAD CON LA VERSIÓN ANTERIOR		if (!file_exists($archivo))
 			$archivo=$db_path.$base."/pfts/".$lang_db."/tit_reserve_01.tab";
 		if (file_exists($archivo)){
 			$fp=file($archivo);
@@ -58,8 +55,7 @@ global $db_path,$lang_db;
 			$fp=explode("|",$titulo);
 			foreach ($fp as $value){
 				$value=trim($value);
-				if (trim($value)!=""){
-					$tit_cols=$tit_cols+1;
+				if (trim($value)!=""){					$tit_cols=$tit_cols+1;
 					$salida.= "<td><strong>$value</strong></td>";
 				}
 			}
@@ -69,10 +65,9 @@ global $db_path,$lang_db;
 	return $salida;
 }
 
-function PrintReservations($usuario,$accion="S",$status=" and (ST_0 or ST_3)"){
+function PrintReservations($usuario,$accion="S",$status=" and (ST_0 or ST_3)",$Opciones=""){
 global $xWxis,$Wxis,$wxisUrl,$db_path,$msgstr,$arrHttp,$reservas_u_cn,$config_date_format,$reservas_activas,$cuenta;
-	$reservas_u="";
-	$Expresion=urlencode($usuario.$status);
+	$reservas_u="";	$Expresion=urlencode($usuario.$status);
 	$IsisScript=$xWxis."cipres_usuario.xis";
 	if (file_exists($db_path."reserve/pfts/".$_SESSION["lang"]."/rsvr.pft")){
 		$Formato=$db_path."reserve/pfts/".$_SESSION["lang"]."/rsvr.pft";
@@ -93,8 +88,7 @@ global $xWxis,$Wxis,$wxisUrl,$db_path,$msgstr,$arrHttp,$reservas_u_cn,$config_da
 	}
     $query="&base=reserve&cipar=$db_path"."par/reserve.par&Expresion=$Expresion&Pft=$Formato";
     include("../common/wxis_llamar.php");
-	foreach ($contenido as $value) {
-		$value=trim($value);
+	foreach ($contenido as $value) {		$value=trim($value);
 		if ($value!=""){
 			$val=explode('$|$',$value);
 			$vv=explode('|',$val[0]);
@@ -131,7 +125,7 @@ global $xWxis,$Wxis,$wxisUrl,$db_path,$msgstr,$arrHttp,$reservas_u_cn,$config_da
 		  		if ($linea[3]!="" and $linea[3]<date("Ymd") and $linea[5]!="")
 		    		$reservas_u.=$msgstr["reserve_canceled"];
 		    }
-		    if ($accion=="S"){
+		    if ($accion=="S" and ($Opciones=="")){
 			    if (trim($fecha_hasta)!="" ) $reservas_u.="&nbsp;<a href=\"javascript:SendMail('assigned',".$mfn.")\"><img src=../dataentry/img/mail_p.png alt='".$msgstr["mail_send"]."' title='".$msgstr["mail_send"]."'></a>";
 	    	    $reservas_u.= "&nbsp; <a href=\"javascript:PrintReserve('assigned',".$mfn.")\"><img src=../dataentry/img/toolbarPrint.png></a>";
 			}
@@ -141,20 +135,19 @@ global $xWxis,$Wxis,$wxisUrl,$db_path,$msgstr,$arrHttp,$reservas_u_cn,$config_da
 		}
 	}
 	if ($reservas_u!="")  $reservas_u.="</table>\n";
-	return $reservas_u;
-}
+	return $reservas_u;}
 
-function ReservesRead($usuario,$accion="S",$status=" and (ST_0 or ST_3)"){
+function ReservesRead($usuario,$accion="S",$status=" and (ST_0 or ST_3)",$Opciones=""){
 global $xWxis,$Wxis,$wxisUrl,$db_path,$msgstr,$arrHttp,$reservas_u_cn,$config_date_format,$reservas_activas,$cuenta;
 	$reservas_u="";
 	$cuenta=0;
 	$reservas_u_cn="";
 	$reservas_activas=0;
-	$reservas_u=PrintReservations($usuario,$accion," and ST_3");
+	$reservas_u=PrintReservations($usuario,$accion," and ST_3",$Opciones);
 	if ($reservas_u!="")
 		$reservas_u=$msgstr["rs02"].$reservas_u;
 	$cuenta=0;
-	$reservas_xx=PrintReservations($usuario,$accion," and ST_0");
+	$reservas_xx=PrintReservations($usuario,$accion," and ST_0",$Opciones);
 	if ($reservas_xx!="")
 		$reservas_u.="<p>".$msgstr["rs01"].$reservas_xx;
 

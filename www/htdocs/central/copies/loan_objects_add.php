@@ -11,7 +11,6 @@ include("../lang/admin.php");
 //foreach ($arrHttp as $var=>$value) echo "$var=$value<br>";
 
 // SE LEE LA TABLA DE STATUS DE LAS COPIAS
-$mystatcopy="";
 $tab_st=$db_path."copies/def/".$_SESSION["lang"]."/status_copy.tab";
 if (!file_exists($tab_st))
 	$tab_st=$db_path."copies/def/".$lang_db."/status_copy.tab";
@@ -25,7 +24,6 @@ foreach ($fp as $value){
 	if ($value!=""){
 		$v=explode("|",$value);
 		$status["^a".$v[0]."^b".$v[1]]="(".$v[0].") ".$v[1];
-		if ($v[0]==2) $mystatcopy="^a".$v[0]."^b".$v[1];
 	}
 
 }
@@ -122,6 +120,13 @@ $fp=file($archivo);
 $key=explode('_',$arrHttp["cn"]);
 $key="CN_".$key[2];
 echo "<strong><a href=javascript:Show('$key','$db')>".$msgstr["cn"].": $cn ($db)</a></strong><br>";
+echo $msgstr["copy_type"]."<br>\n";
+echo "<font color=darkred><strong>".$msgstr["copy_status"]."</strong>: </font>";
+echo "<select name=copy_status>\n<option></option>";
+foreach ($status as $var=>$value){
+	echo "<option value=\"$var\">$value</option>\n";
+}
+echo "</select>";
 echo "<table class=\"statTable\" cellspacing=5 cellpadding=5 width=100%>
 		<tr>";
 foreach ($fp as $linea) {
@@ -173,7 +178,6 @@ echo "</table>
 <input type=hidden name=ValorCapturado>
 <input type=hidden name=base value=\"".$arrHttp["base"]."\">
 <input type=hidden name=cn value=$cn>
-<input type=hidden name=copy_status value=\"".$mystatcopy."\">
 </div>
 <div>
 <div>

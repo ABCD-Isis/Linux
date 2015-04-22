@@ -9,8 +9,6 @@ include("../lang/dbadmin.php");
 
 include("../lang/admin.php");
 include("../lang/prestamo.php");
-include("../acquisitions/javascript.php");
-
 //foreach ($arrHttp as $var=>$value) echo "$var=$value<br>";
 $ex=explode("_",$arrHttp["Expresion"]);
 $arrHttp["base"]=$ex[1];
@@ -29,8 +27,7 @@ if (isset($arrHttp["unlock"])){
     	include("../common/wxis_llamar.php");
     	$res=implode("",$contenido);
     	$res=trim($res);
-    }
-}
+    }}
 if (!isset($arrHttp["from"])) $arrHttp["from"]=1;
 if (isset($arrHttp["Expresion"])) $arrHttp["Expresion"]=stripslashes($arrHttp["Expresion"]);
 //foreach ($arrHttp as $var=>$value) echo "$var=$value<br>";
@@ -59,19 +56,12 @@ include("../common/header.php");
 xEliminar="";
 Mfn_elminar=0;
 top.toolbarEnabled=""
-	function Editar(Mfn,Status,LoanStatus){
-	if (LoanStatus==-1){
-	    document.editar.Mfn.value=Mfn
+	function Editar(Mfn,Status){		document.editar.Mfn.value=Mfn
 		document.editar.Status.value=Status
 		document.editar.Opcion.value="editar"
-		document.editar.submit()
-		}
-		else
-		alert("<?php echo $msgstr["cantEditCopyOnLoan"];?>");
-	}
+		document.editar.submit()	}
 
-	function Eliminar(Mfn,Db,Cn,Inv,LoanStatus){
-	if (LoanStatus==-1){
+	function Eliminar(Mfn){
 		if (xEliminar==""){
 			alert("<?php echo $msgstr["confirmdel"]?>")
 			xEliminar="1"
@@ -82,35 +72,19 @@ top.toolbarEnabled=""
 				xEliminar=""
                 return
 			}
-			DoRemoveFromLoUpdatingStatus(Db,Cn,Inv,Mfn);						
-			NewWindow("../dataentry/img/preloader.gif","progress",100,100,"NO","center")
+
+			xEliminar=""
+			document.eliminar.Mfn.value=Mfn
+			document.eliminar.submit()
 		}
-		}
-		else
-		alert("<?php echo $msgstr["cantDeleteCopyOnLoan"];?>");
 	}
-    function DoRemove(Mfn) {      
-	  xEliminar=""
-	  document.eliminar.Mfn.value=Mfn
-	  document.eliminar.submit()
-    }	
-function NewWindow(mypage,myname,w,h,scroll,pos){
-if(pos=="random"){LeftPosition=(screen.width)?Math.floor(Math.random()*(screen.width-w)):100;TopPosition=(screen.height)?Math.floor(Math.random()*((screen.height-h)-75)):100;}
-if(pos=="center"){LeftPosition=(screen.width)?(screen.width-w)/2:100;TopPosition=(screen.height)?(screen.height-h)/2:100;}
-else if((pos!="center" && pos!="random") || pos==null){LeftPosition=0;TopPosition=20}
-settings='width='+w+',height='+h+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',location=no,directories=no,status=no,menubar=no,toolbar=no,resizable=no';
-win=window.open(mypage,myname,settings);}
-win.focus()
-// -->	
 </script>
 <?php
-echo "<body onunload=win.close()>";
+echo "<body>";
 if (isset($arrHttp["encabezado"])){
 	include("../common/institutional_info.php");
 	$encabezado="&encabezado=s";
-}else{
-	$encabezado="";
-}
+}else{	$encabezado="";}
 
 ?>
 <div class="sectionInfo">
@@ -148,8 +122,7 @@ echo "<font color=white>&nbsp; &nbsp; Script: copies_edit_browse.php</font>\n";
 		<div class="middle form">
 		<div class="formContent">
 <?php
-	echo "<Script>Indices='N'</script>\n" ;
-
+	echo "<Script>Indices='N'</script>\n" ;
 echo "
 			<table class=\"listTable\">
 				<tr>
@@ -160,13 +133,10 @@ $archivo=$db_path.$arrHttp["base"]."/pfts/".$_SESSION["lang"]."/tbtit.tab";
 if (!file_exists($archivo)) $archivo=$db_path."copies/pfts/".$lang_db."/tbtit.tab";
 if (file_exists($archivo)){
 	$fp=file($archivo);
-	foreach ($fp as $value){
-		$value=trim($value);
-		if (trim($value)!=""){
-			$t=explode('|',$value);
+	foreach ($fp as $value){		$value=trim($value);
+		if (trim($value)!=""){			$t=explode('|',$value);
 			foreach ($t as $rot) echo "<th>$rot</th>";
-		}
-	}
+		}	}
 }
 echo "<th class=\"action\">&nbsp;</th></tr>";
 $desde=0;
@@ -181,33 +151,17 @@ foreach ($inventary as $value){
 		$Status=$u[1];
 		$desde=$u[2];
 		$hasta=$u[3];
-		
-		//Check the copy status on the trans database
-		$Expresion="TR_P_".$u[7];
-	    $IsisScript= $xWxis."buscar_ingreso.xis";
-	    $Pft="v1'|',v10'|',v98'|'/";
-	    $query = "&base=trans&cipar=$db_path"."par/trans.par&Expresion=$Expresion&Pft=$Pft";
-	    include("../common/wxis_llamar.php");
-	    $MfnT="";
-	    foreach ($contenido as $lineaT){	
-		if (trim($lineaT)!="") if (substr($lineaT,0,6)=="[MFN:]") $MfnT=substr($lineaT,6);}
-		if ($MfnT=="") $MfnT=-1;
-		$MfnT=(int)$MfnT; 
-		//end of Check the copy status on the trans database
-		
 		echo "<td>".$u[2]."/",$u[3];
 		if ($Status==1) echo "<img src=\"../images/delete.png\" align=absmiddle alt=\"excluir base de dados\" title=\"excluir base de dados\" />";
 		echo "</td>";
 		for ($ix=4;$ix<count($u);$ix++) echo "<td>" .$u[$ix]."</td>";
 		echo "<td class=\"action\">
-			<a href=javascript:Editar($Mfn,$Status,$MfnT)>
+			<a href=javascript:Editar($Mfn,$Status)>
 			<img src=\"../images/edit.png\" alt=\"editar base de dados\" title=\"editar base de dados\" /></a>
 			<a href=../dataentry/show.php?base=copies&cipar=copies.par&Mfn=$Mfn".$encabezado."&Opcion=editar  target=_blank><img src=\"../images/zoom.png\"/></a>";
 		if ($Status==0) echo "
-			<a href=\"javascript:Eliminar($Mfn,'$u[5]',$u[4],$u[7],$MfnT)\"><img src=\"../images/delete.png\" alt=\"".$msgstr["eliminar"]."\" title=\"".$msgstr["eliminar"]."\" /></a>";
-		else {
-			switch ($Status){
-				case -2:
+			<a href=\"javascript:Eliminar($Mfn)\"><img src=\"../images/delete.png\" alt=\"".$msgstr["eliminar"]."\" title=\"".$msgstr["eliminar"]."\" /></a>";
+		else {			switch ($Status){				case -2:
 					echo $msgstr["recblock"];
 					break;
 				case 1:
@@ -244,9 +198,7 @@ echo "</form>
     <input type=hidden name=retorno value=../copies/copies_edit_browse.php?base=copies&Expresion=".urlencode($arrHttp["Expresion"]).">
     <input type=hidden name=Opcion value=editar>
 ";
-if (isset($arrHttp["encabezado"])){
-	echo "<input type=hidden name=encabezado value=s>\n";
-}
+if (isset($arrHttp["encabezado"])){	echo "<input type=hidden name=encabezado value=s>\n";}
 if (isset($arrHttp["return"])){
 	echo "<input type=hidden name=return value=".$arrHttp["return"].">\n";
 }

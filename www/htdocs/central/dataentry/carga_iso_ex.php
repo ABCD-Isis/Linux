@@ -110,6 +110,8 @@ if (isset($arrHttp["accion"])){
 					$msg=substr($linea,$ix+1,$ix1-$ix-1);
 					echo substr($linea,$ix1+1)." ".$msgstr[$msg]."<br>";
 				}
+				flush();
+    			ob_flush();
 
 			}
 			echo "</td></table>";

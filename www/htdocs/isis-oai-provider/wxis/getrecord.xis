@@ -15,17 +15,21 @@
         <field action="cgi" tag="prefix">tag</field>
 
 		<display><pft>'Content-type: text/xml'/#</pft></display>
+
 		<do task="search">
 			<parm name="db"><pft>v6001</pft></parm>
 
             <!-- apply character control gizmo to avoid conversion errors -->
-            <parm name="gizmo"><pft>v5000,'/gizmo/gnoctrl'</pft></parm>
+            <!-- next line includes gizmo-db, so make sure special wxis-versions have correct gizmo-db ! -->
+            <parm name="gizmo"><pft>v5000,'/gizmo/',if v6001 : 'dubcore' then 'bi/' fi, 'gnoctrl'</pft></parm>
+
 
 			<field action="replace" tag="6002" split="occ"><pft>proc('Gsplit/clean=6002=@')</pft></field>
 			<field action="replace" tag="6022"><pft>left(v6002[2],instr(v6002[2],'/')-1)</pft></field>
 
 			<!-- search by id_number/(inverted field) OR ID=id_number OR ID_id_number -->			
-			<parm name="expression"><pft>v6002[2], ' OR ID=',v6022,' OR ID_',v6022</pft></parm>
+			<!-- parm name="expression"><pft>v6002[2], ' OR ID=',v6022,' OR ID_',v6022</pft></parm> -->
+                        <parm name="expression"><pft>'$'</pft></parm>
 			<parm name="count">1</parm>
 
 			<flow action="jump"><pft>s(mpu,v6003,mpl)</pft></flow>
@@ -40,7 +44,7 @@
 				</parm>
 				
 				<loop>	
-					<proc>d1001d1002d1101d1102</proc>
+					<proc>d99d1001d1002d1101d1102</proc>
 					<display><isisxml>*</isisxml></display>				
 				</loop>
 				<flow action="jump">END</flow>

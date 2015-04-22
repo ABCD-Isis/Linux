@@ -16,3 +16,10 @@
     </div>
 '
 
+' <!-- Esta forma se envía para solicitar la clave para ver un documento -->
+<form name=verdocumento action="http://biblioteca3.aeu.org.uy/central/iah/ver_documento.php" method=post target="AEUDOC">
+<input type=hidden name=mfn>
+<input type=hidden name=lang>
+<input type=hidden name=occ>
+<input type=hidden name=base>
+</form>'

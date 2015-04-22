@@ -12,23 +12,20 @@ $app_path="central";
 
 //This variable erases the left zeroes in the inventory number
 $inventory_numeric ="N";
-
 //Add Zeroes to the left for reaching the max length of the inventory number
 $max_inventory_length=1;
-
 //Add Zeroes to the left for reaching the max length of the control number
 $max_cn_length=1;
 
 //Colocar Y en esta variable si se quiere llevar un log de todas las transacciones realizadas sobre la base de datos.
 //Para que funcione en la carpeta de la base de datos debe existir una subcarpeta llamada log
 $log="Y";
+$EmpWeb="Y";
 
-//Set this variable to Y if you use the EmpWeb module
-$EmpWeb="N";
-
-//Path to databases
+//$db_path="/bases_abcd/bases/";
+//$db_path="/abcd/www/bases/demo_copies/";   //*************************************
 $db_path="/var/opt/ABCD/bases/";
-
+//path where the lang file and help page are to be located
 $msg_path="/var/opt/ABCD/bases/";
 
 if (isset($_SESSION["DATABASE_DIR"])) {
@@ -48,6 +45,7 @@ $cisis_ver="";
 if (isset($arrHttp["base"])){
 	if ($def[$arrHttp["base"]]!='')
  		$cisis_ver=$def[$arrHttp["base"]];
+//echo 'cisis_ver=' . $cisis_ver.'<p>';
 }
 
 //***
@@ -66,7 +64,7 @@ $Wxis="/opt/ABCD/www/cgi-bin/$cisis_ver"."wxis";
 $xWxis="/opt/ABCD/www/htdocs/$app_path/dataentry/wxis/";
 
 //Url for the execution of WXis, when using GGI in place of exec
-$wxisUrl="http://192.168.8.129/cgi-bin/$cisis_ver"."wxis";
+$wxisUrl="http://127.0.0.1:9090/cgi-bin/$cisis_ver"."wxis";
 //$wxisUrl="";   //SI NO SE VA A UTILIZAR EL METODO POST PARA VER LOS REGISTROS
 
 //ruta hacia el mx
@@ -110,10 +108,8 @@ if (isset($def["DIRTREE"]))
 //USE THIS PARAMETER TO ENABLE/DISABLE THE MD5 PASSWORD ENCRIPTYON (0=OFF 1=ON)
 $MD5=0;
 
-$empwebservicequerylocation = "http://localhost:8086/ewengine/services/EmpwebQueryService";
-$empwebservicetranslocation = "http://localhost:8086/ewengine/services/EmpwebTransactionService";
-$empwebserviceobjectsdb = "objetos";
-$empwebserviceusersdb = "*";
+$empwebservicequerylocation = "http://localhost:8086/ewengine/services/EmpwebQueryService";$empwebservicetranslocation = "http://localhost:8086/ewengine/services/EmpwebTransactionService";
+$empwebserviceobjectsdb = "objetos";$empwebserviceusersdb = "*";
 //***
 //Include config_extended.php that reads configuration parameters that applies to the selected database
 if (file_exists(realpath(dirname(__FILE__)).DIRECTORY_SEPARATOR."config_extended.php"))

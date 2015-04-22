@@ -32,51 +32,11 @@ if ($res=="LOCKREJECTED") {
 ?>
 <script language=javascript>
 top.toolbarEnabled="N"
-function Validar(){
-inv = document.getElementById("tag30")
-mydiv = document.getElementById("INE");
-if (inv.value=="") {
-mydiv.innerHTML='</br>    <?php echo $msgstr["errINE"];?></br></br></br>';
-mydiv.style.display='block';
-inv.focus();
-return "N";
-}
-invdup=0;
-invnumbers=document.getElementById("INVA").value;
-if (invnumbers!="~"){
-listinvnumbers=invnumbers.split("~");
-for (i = 0; i < (listinvnumbers.length-1); i++)
-{
-  if (document.forma1.Mfn.value!=listinvnumbers[i]) invdup+=1;
-}
-if (invdup>0){
-mydiv.innerHTML='</br>    <?php echo $msgstr["errEXCopyS"];?></br></br></br>';
-mydiv.style.display='block';
-inv.focus();
-return "N";
-}
-}
-
-var thiscpystatus="";
-for(i=0;i<document.forma1.tag200.length;i++){	
-    if(document.forma1.tag200[i].checked) thiscpystatus=document.forma1.tag200[i].value;}	
-if (cpycurrentstatus!=thiscpystatus)
-{
-checkstatus=thiscpystatus.split("^");
-if (checkstatus[1]=='a2'){
-mydiv.innerHTML='</br>    <?php echo $msgstr["errSXCopyS"];?></br></br></br>';
-mydiv.style.display='block';
-return "N";
-}
-}
-
-return "Y";
-}
-function EnviarForma(){
-	ret=Validar()	
+function Validar(){
+}
+function EnviarForma(){	ret=Validar()
 	if (ret=="N") return
-	document.forma1.submit()
-}
+	document.forma1.submit()}
 
 
 function RefrescarPicklist(tabla,Ctrl,valor){
@@ -170,10 +130,6 @@ echo "<font color=white>&nbsp; &nbsp; Script: copies_edit_read.php";
 <input type=hidden name=retorno value=<?php echo $arrHttp["retorno"]?>>
 
 <div class="middle form">
-<div name="INE" id="INE" style="color:#990000; display:none; font-style:italic; font-weight:bold;"></div>
-<input type=hidden name=INVA id=INVA value="<?php echo $arrHttp["Mfn"]?>~">
-<input type=hidden name=curIN id=curIN value="">
-<input type=hidden name=curST id=curST value="">
 <?php
 $fmt_test="S";
 $arrHttp["wks"]="new.fmt";
@@ -243,16 +199,3 @@ global $tag_ctl,$pref_ctl,$arrHttp,$db_path;
 }
 
 ?>
-<script language=javascript>
-var cpycurrentstatus=selected="";
-for(i=0;i<document.forma1.tag200.length;i++){	
-    if(document.forma1.tag200[i].checked) {cpycurrentstatus=document.forma1.tag200[i].value;selected=i}}	
-function CheckInventory()
-{
-CheckInventoryDup(document.getElementById("tag30").value,2);
-}
-CheckInventoryDup(document.getElementById("tag30").value,2);
-document.forma1.curIN.value=document.forma1.tag30.value;
-document.forma1.curST.value=cpycurrentstatus;
-if (selected!=2) document.forma1.tag200[2].disabled = true;
-</script>

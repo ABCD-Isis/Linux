@@ -9,13 +9,11 @@ include ("../config.php");
 function BuscarClavesLargas($Termino){
 global $arrHttp,$Formato,$xWxis,$Wxis,$wxisUrl,$db_path;
 	$Termino=urlencode($Termino);
-	$contenido="";
-	$query = "&base=".$arrHttp["base"] ."&cipar=$db_path"."par/".$arrHttp["cipar"]."&Opcion=autoridades"."&tagfst=".substr($arrHttp["tagfst"],3)."&prefijo=".strtoupper($arrHttp["pref"]).$Termino."&to=".strtoupper($arrHttp["pref"]).$Termino."&pref=".strtoupper($arrHttp["pref"])."&postings=ALL&formato_e=".urlencode($Formato);
+	$contenido="";	$query = "&base=".$arrHttp["base"] ."&cipar=$db_path"."par/".$arrHttp["cipar"]."&Opcion=autoridades"."&tagfst=".substr($arrHttp["tagfst"],3)."&prefijo=".strtoupper($arrHttp["pref"]).$Termino."&to=".strtoupper($arrHttp["pref"]).$Termino."&pref=".strtoupper($arrHttp["pref"])."&postings=ALL&formato_e=".urlencode($Formato);
 	$IsisScript=$xWxis."ifp.xis";
 	include("../common/wxis_llamar.php");
 	$cont = array_unique ($contenido);
-	foreach ($cont as $linea ){
-		$f=explode('$$$',$linea);
+	foreach ($cont as $linea ){		$f=explode('$$$',$linea);
 		if (isset($f[2])) $f[1]=$f[2];
 		if (!isset($f[1])) $f[1]=$f[0];
 		if (substr($f[0],0,1)=="^") $f[0]=substr($f[0],2);
@@ -25,10 +23,7 @@ global $arrHttp,$Formato,$xWxis,$Wxis,$wxisUrl,$db_path;
 		echo " title=\"".$f[1]."\"";
 		echo ">";
         echo $f[0];
-        echo "</option>";
-	}
-
-}
+        echo "</option>";	}}
 
 // ==================================================================================================
 // INICIO DEL PROGRAMA
@@ -43,13 +38,9 @@ $primeravez="";
 if (!isset($arrHttp["pref"])) $arrHttp["pref"]=$arrHttp["prefijo"];
 /*
 if (!isset($arrHttp["baseactiva"])){
-	$primeravez="S";
-	$arrHttp["baseactiva"]=$arrHttp["base"];
+	$primeravez="S";	$arrHttp["baseactiva"]=$arrHttp["base"];
 	$arrHttp["ba_formato"]=$arrHttp["Formato"];
-	$arrHttp["pref"]=$arrHttp["prefijo"];
-}*/
-
-
+	$arrHttp["pref"]=$arrHttp["prefijo"];}*/
 //READ FILE WITH TESAURIS DEFINITION
 if (isset($arrHttp["baseactiva"])){
 	$tesaurus=$db_path.$arrHttp["baseactiva"]."/def/".$_SESSION["lang"]."/tesaurus.def";
@@ -61,25 +52,20 @@ if (isset($arrHttp["baseactiva"])){
 		$tesau=parse_ini_file($tesaurus,1);
 	}
 }
-if (isset($arrHttp["tesauro"])){
-	$arrHttp["base"]=$arrHttp["tesauro"];
+if (isset($arrHttp["tesauro"])){	$arrHttp["base"]=$arrHttp["tesauro"];
 	$arrHttp["cipar"]=$arrHttp["tesauro"].".par";
 	$arrHttp["Formato"]=$tesau[$arrHttp["base"]][$arrHttp["index"]."_pft"];
-	if (!isset($arrHttp["prefijo"]) || $arrHttp["prefijo"]=="**"){
-		$arrHttp["prefijo"]=$tesau[$arrHttp["base"]][$arrHttp["index"]."_pref"];
+	if (!isset($arrHttp["prefijo"]) || $arrHttp["prefijo"]=="**"){		$arrHttp["prefijo"]=$tesau[$arrHttp["base"]][$arrHttp["index"]."_pref"];
 	}
 	$arrHttp["pref"]=$tesau[$arrHttp["base"]][$arrHttp["index"]."_pref"];
-}else{
-   if (!isset($arrHttp["prefijo"]) || $arrHttp["prefijo"]=="**"){
-   		if (!isset($arrHttp["ba_prefijo"])) $arrHttp["ba_prefijo"]="";
+}else{   if (!isset($arrHttp["prefijo"]) || $arrHttp["prefijo"]=="**"){   		if (!isset($arrHttp["ba_prefijo"])) $arrHttp["ba_prefijo"]="";
    		if (!isset($arrHttp["ba_pref"])) $arrHttp["ba_pref"]="";
 		$arrHttp["prefijo"]=$arrHttp["ba_prefijo"];
 		$arrHttp["pref"] =$arrHttp["ba_pref"];
 	}
 }
 
-
-if (!isset($arrHttp["subc"])) $arrHttp["subc"]="";
+if (!isset($arrHttp["subc"])) $arrHttp["subc"]="";
 
 	if (!isset($arrHttp["tagfst"])) $arrHttp["tagfst"]="";
 	if (!isset($arrHttp["delimitador"])) $arrHttp["delimitador"]="";
@@ -148,8 +134,7 @@ msg_pv=\"\"\n";
 		if (Var.type=="text")
 			Separa=";"
 		else
-			Separa=Delimitador
-		a=Var.value
+			Separa=Delimitador		a=Var.value
 		if (a=="" || Repetible!="R"){
 			Var.value=Term
 		}else{
@@ -160,8 +145,7 @@ msg_pv=\"\"\n";
 			b=a.split("\n")
 			if(b.length>Var.rows) Var.rows=b.length+1
 
-		}
-	}
+		}	}
     selected=""
 
     function ObtenerTerminos(){
@@ -182,14 +166,10 @@ msg_pv=\"\"\n";
 				term=document.Lista.autoridades.options[i].value
 				if (term=="") term=optval
 				// si se llama desde la plantilla de subcampos, se elimina el primer subcampo
-				if (Indice!="N"){
-					if (term.substring(0,1)=="^")
-						term=term.substring(2)
-				}
+				if (Indice!="N"){					if (term.substring(0,1)=="^")
+						term=term.substring(2)				}
 				tt='$$'+term+'$$'
-				if (Repetible!="R"){     //   NON REPETEABLE FIELD
-					Seleccion=term
-				}else{
+				if (Repetible!="R"){     //   NON REPETEABLE FIELD					Seleccion=term				}else{
 					if (selected.indexOf(tt)==-1){
 						if (Seleccion==""){  //EMPTY BOX
 							Seleccion=term
@@ -204,8 +184,7 @@ msg_pv=\"\"\n";
 		if (Seleccion=="") return
         if (document.Lista.preview.checked){
         	msg_pv="Y"
-        	if (index=="jerar"){
-        		optval=term;
+        	if (index=="jerar"){        		optval=term;
         	}
         	url="base=<?php echo $arrHttp["base"]?>&Expresion="+escape(Pref+optval)+"&Opcion=buscar"
         	<?php
@@ -236,8 +215,7 @@ msg_pv=\"\"\n";
 					b=a.split("\n")
 					if(b.length>Var.rows) Var.rows=b.length
 				}
-			}
-        }else{
+			}        }else{
 			if (subC.length>0 ){
 				if (Seleccion.substr(0,1)!="^")
 					Seleccion="^"+subC.substr(0,1)+Seleccion
@@ -248,8 +226,7 @@ msg_pv=\"\"\n";
 						cc=Seleccion.substr(ixpos+2)
 						ixpos=cc.indexOf("^")
 						if (ixpos>0) cc=cc.substr(0,ixpos)
-						switch (Ctrl.type){
-							case "text":
+						switch (Ctrl.type){							case "text":
 								Ctrl.value=cc
 								break
 							case "select-one":
@@ -257,11 +234,9 @@ msg_pv=\"\"\n";
 								for (i=0;i<Ctrl.options.length;i++){
 									if (Ctrl.options[i].value==cc){
 										selI=i
-									}
-								}
+									}								}
 								Ctrl.options.selectedIndex=selI
-								break
-						}
+								break						}
 
 						Ctrl.value=cc
 					}else{
@@ -269,11 +244,9 @@ msg_pv=\"\"\n";
 					}
 				}
 			}else{
-				if (Seleccion.substr(0,4)=="_TAG"){
-					CopyToFields(Seleccion)
+				if (Seleccion.substr(0,4)=="_TAG"){					CopyToFields(Seleccion)
 					self.close()
-					return
-				}
+					return				}
 				if (Var.type=="textarea" || Var.type=="text"){
 					if (Seleccion!=""){
 						a=Var.value
@@ -291,8 +264,7 @@ msg_pv=\"\"\n";
 					b=a.split("\n")
 
 					if(b.length>Var.rows) Var.rows=b.length
-
-				}
+				}
 			}
 		}
 		if (Var.type!="textarea") self.close()
@@ -301,11 +273,8 @@ msg_pv=\"\"\n";
 function CopyToFields(Seleccion){
 	t=Seleccion.split('_TAG');
 	for (ix=1;ix<t.length;ix++){
-		val=t[ix].split(':')
-		Ctrl=eval("window.opener.document.forma1.tag"+val[0])
-		Ctrl.value=val[1]
-	}
-}
+		val=t[ix].split(':')		Ctrl=eval("window.opener.document.forma1.tag"+val[0])
+		Ctrl.value=val[1]	}}
 
 function Continuar(){
 	i=document.Lista.autoridades.length-1
@@ -313,36 +282,27 @@ function Continuar(){
 	AbrirIndice(a)
 }
 
-function IrA(ixj){
-	a=document.Lista.ira.value
+function IrA(ixj){	a=document.Lista.ira.value
 
 	AbrirIndice(a)
 }
 
-function CloseWindows(){
-	if (msg_pv=="Y"){
-		msgwin_preview.close()
-	}
-}
+function CloseWindows(){	if (msg_pv=="Y"){		msgwin_preview.close()	}}
 /*
 function AbrirTesauro(Tes,Index){
-	if (Tes=="<?php echo $arrHttp["baseactiva"]?>"){
-
-        document.Lista.baseactiva.value=""
+	if (Tes=="<?php echo $arrHttp["baseactiva"]?>"){        document.Lista.baseactiva.value=""
         document.Lista.tesauro.value=""
         document.Lista.base.value="<?php echo $arrHttp["baseactiva"]?>"
         document.Lista.Formato.value="<?php if (isset($arrHttp["ba_Formato"])) echo $arrHttp["ba_Formato"]?>"
         document.Lista.pref.value="<?php if (isset($arrHttp["ba_pref"]))  echo $arrHttp["ba_pref"]?>"
-        document.Lista.pref.value="<?php if (isset($arrHttp["ba_prefijo"])) echo $arrHttp["ba_prefijo"]?>"
-	}else{
+        document.Lista.pref.value="<?php if (isset($arrHttp["ba_prefijo"])) echo $arrHttp["ba_prefijo"]?>"	}else{
 		document.Lista.tesauro.value=Tes
 
 		document.Lista.pref.value=""
 	}
 	document.Lista.index.value=Index
 	document.Lista.prefijo.value="**"
-	document.Lista.submit()
-}
+	document.Lista.submit()}
 */
 <?php
 echo "function AbrirIndice(Termino){
@@ -354,12 +314,10 @@ echo "function AbrirIndice(Termino){
 
 	}
 
-function AgregarRegistro(){
-	msgwin=window.open(\"\",\"agregar_r\",\"width=800, height=400, resizable, scrollbars\")
+function AgregarRegistro(){	msgwin=window.open(\"\",\"agregar_r\",\"width=800, height=400, resizable, scrollbars\")
 	document.agregar_r.submit()
 	msgwin.focus()
-	self.close()
-}
+	self.close()}
 
 function ImprimirDiccionario(){
 	if (confirm('".$msgstr["print_diccio"]."')){
@@ -374,14 +332,11 @@ function ImprimirDiccionario(){
 		document.Lista.submit()
 	}
 
-
-}
+}
 </script>\n";
-if (isset($arrHttp["width"])){
-	$width=$arrHttp["width"];
+if (isset($arrHttp["width"])){	$width=$arrHttp["width"];
 }else{
-	$width=600;
-}
+	$width=600;}
 ?>
 	</head>
 	<body bgcolor=#eeeeee LEFTMARGIN="0" TOPMARGIN="0" MARGINWIDTH="0" onunload=CloseWindows() onsubmit="javascript: return false">
@@ -405,13 +360,11 @@ if (isset($arrHttp["width"])){
 
 <?php
 if (!isset($arrHttp["index"])) $arrHttp["index"]="";
-switch($arrHttp["index"]){
-
+switch($arrHttp["index"]){
 	case "permu":
 		foreach ($contenido as $linea)  {
 
-			$linea=trim($linea);
-			$ix=strpos($linea," ");
+			$linea=trim($linea);			$ix=strpos($linea," ");
 			$permuta=substr($linea,0,$ix);
 			$permuta=substr($permuta,4);
 			$permuta=trim($permuta);
@@ -434,14 +387,12 @@ switch($arrHttp["index"]){
 		echo "<td width=95% valign=top>";
 		echo "
 			<Select name=autoridades multiple size=24 style=\"width:".$width."px\" onclick=javascript:ObtenerTerminos()>\n";
-		foreach ($contenido as $linea){
-			if (trim($linea)!=""){
+		foreach ($contenido as $linea){			if (trim($linea)!=""){
 				$f=explode('$$$',$linea);
 				if (isset($f[2])) $f[1]=$f[2];
 				if (!isset($f[1])) $f[1]=$f[0];
 				if (substr($f[0],0,1)=="^") $f[0]=substr($f[0],2);
-				if (strlen($f[0])>58){
-					BuscarClavesLargas($f[0]);
+				if (strlen($f[0])>58){					BuscarClavesLargas($f[0]);
 				}else{
 					echo "<option value=\"";
 					echo trim($f[1]);
@@ -472,35 +423,27 @@ if (isset($arrHttp["baseactiva"]) and $arrHttp["baseactiva"]!=$arrHttp["base"]){
 }
 echo "
 	</table><p>" ;
-if (isset($tesau)) {
-	if (isset($arrHttp["baseactiva"]) and isset($tesau)){
+if (isset($tesau)) {	if (isset($arrHttp["baseactiva"]) and isset($tesau)){
 	    echo "<td><a href=\"javascript:AbrirTesauro('".$arrHttp["baseactiva"]."')\">".$msgstr["bd"]." ".$arrHttp["baseactiva"]."</a></td>";
-	}
-	foreach ($tesau as $key=>$value){
+	}	foreach ($tesau as $key=>$value){
 		$name_t=$key;
 		echo "</center><br>".$tesau[$key]["name"].": <a href=\"javascript:AbrirTesauro('$key','alpha')\">".$msgstr["alfabet"]."</a>&nbsp; &nbsp;";
 		if (isset($tesau[$key]["permu_pref"])) echo  " | <a href=\"javascript:AbrirTesauro('$key','permu')\">".$msgstr["permutado"]."</a>&nbsp; &nbsp;";
-		if (isset($tesau[$key]["jerar_pref"])) echo  " | <a href=\"javascript:AbrirTesauro('$key','jerar')\">".$msgstr["jerarq"]."</a>&nbsp; &nbsp;";
-	}
-}
+		if (isset($tesau[$key]["jerar_pref"])) echo  " | <a href=\"javascript:AbrirTesauro('$key','jerar')\">".$msgstr["jerarq"]."</a>&nbsp; &nbsp;";	}}
 echo "<a href=javascript:ImprimirDiccionario()><img src=img/barPrint.png border=0 alt='".$msgstr["print_dict"]."' title='".$msgstr["print_dict"]."' border=0></a>";
 echo "</center>";
 
 
 	echo "<input type=hidden name=baseactiva value=\"".$arrHttp["baseactiva"]."\">\n";
-if ($primeravez=="S") {
-	echo "<input type=hidden name=ba_Formato value='".$arrHttp["Formato"]."'>\n";
+if ($primeravez=="S") {	echo "<input type=hidden name=ba_Formato value='".$arrHttp["Formato"]."'>\n";
 	echo "<input type=hidden name=ba_Tag value=".$arrHttp["Tag"].">\n";
 	echo "<input type=hidden name=ba_pref value=".$arrHttp["pref"].">\n";
 	echo "<input type=hidden name=ba_prefijo value=".$arrHttp["prefijo"].">\n";
-	echo "<input type=hidden name=ba_repetible value=".$arrHttp["repetible"].">\n";
-}else{
-	if (isset($arrHttp["ba_formato"]))   echo "<input type=hidden name=ba_formato value=".$arrHttp["ba_formato"].">\n";
+	echo "<input type=hidden name=ba_repetible value=".$arrHttp["repetible"].">\n";}else{	if (isset($arrHttp["ba_formato"]))   echo "<input type=hidden name=ba_formato value=".$arrHttp["ba_formato"].">\n";
 	if (isset($arrHttp["ba_Tag"]))       echo "<input type=hidden name=ba_Tag value=".$arrHttp["ba_Tag"].">\n";
 	if (isset($arrHttp["ba_pref"]))      echo "<input type=hidden name=ba_pref value=".$arrHttp["ba_pref"].">\n";
 	if (isset($arrHttp["ba_prefijo"]))   echo "<input type=hidden name=ba_prefijo value=".$arrHttp["ba_prefijo"].">\n";
-	if (isset($arrHttp["ba_repetible"])) echo "<input type=hidden name=ba_repetible value=".$arrHttp["ba_repetible"].">\n";
-}
+	if (isset($arrHttp["ba_repetible"])) echo "<input type=hidden name=ba_repetible value=".$arrHttp["ba_repetible"].">\n";}
 echo "<input type=hidden name=base>\n";
 echo "<input type=hidden name=cipar>\n";
 echo "<input type=hidden name=Formato value='".$arrHttp["Formato"]."'>\n";
@@ -512,17 +455,12 @@ echo "<input type=hidden name=postings value=".$arrHttp["postings"].">\n";
 echo "<input type=hidden name=index";
 if (isset($arrHttp["index"])) echo " value=".$arrHttp["index"];
 echo ">\n";
-if (isset($arrHttp["tesauro"])){
-	echo "<input type=hidden name=tesauro value=".$arrHttp["tesauro"].">\n";
-}else{
-	echo "<input type=hidden name=tesauro>\n";
-}
+if (isset($arrHttp["tesauro"])){	echo "<input type=hidden name=tesauro value=".$arrHttp["tesauro"].">\n";}else{	echo "<input type=hidden name=tesauro>\n";}
 ?>
 
 </form>
 <?php
-if (isset($arrHttp["baseactiva"])){
-	echo "<form name=agregar_r method=post action=fmt.php target=agregar_r>\n";
+if (isset($arrHttp["baseactiva"])){	echo "<form name=agregar_r method=post action=fmt.php target=agregar_r>\n";
 	echo "<input type=hidden name=base value=".$arrHttp["base"].">\n";
 	echo "<input type=hidden name=cipar value=".$arrHttp["base"].".par>\n";
 	echo "<input type=hidden name=Opcion value=nuevo>\n";
@@ -530,8 +468,7 @@ if (isset($arrHttp["baseactiva"])){
 	echo "<input type=hidden name=ver value=N>\n";
 	echo "<input type=hidden name=formato value='".$arrHttp["base"]."'>\n";
     echo "<input type=hidden name=desde value=autoridades>\n";
-    echo "<input type=hidden name=ventana value=s>\n";
-}
+    echo "<input type=hidden name=ventana value=s>\n";}
 ?>
 </form>
 

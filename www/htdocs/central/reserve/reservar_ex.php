@@ -1,27 +1,34 @@
 <?php
 session_start();
-// RESERVA DESDE EL SISTEMA DE PRESTAMOS
-if (!isset($_SESSION["permiso"])){
-	header("Location: ../common/error_page.php") ;
-}
-$script_php="../circulation/estado_de_cuenta.php";
-
-if (!isset($_SESSION["login"])) die;
-if (!isset($_SESSION["lang"]))  $_SESSION["lang"]="en";
-
-
 include("../common/get_post.php");
-//foreach ($arrHttp as $var=>$value) echo "$var=$value<br>";
+include("../config.php");
+if (isset($arrHttp["DB_PATH"]))  $db_path=$arrHttp["DB_PATH"] ;
+include("../common/header.php");
+if (isset($arrHttp["desde"]) and $arrHttp["desde"]=="IAH_RESERVA"){	$_SESSION["login"]="IAH";
+	$_SESSION["lang"]="es";}else{
+	// RESERVA DESDE EL SISTEMA DE PRESTAMOS
+	if (!isset($_SESSION["permiso"])){
+		header("Location: ../common/error_page.php") ;
+	}
+	$script_php="../circulation/estado_de_cuenta.php";
 
+	if (!isset($_SESSION["login"])) die;
+	if (!isset($_SESSION["lang"]))  $_SESSION["lang"]="en";
+	include("../common/institutional_info.php");
+}
+
+//foreach ($arrHttp as $var=>$value) echo "$var=$value<br>";//die;
+if (isset($arrHttp["usuario_reserva"])) $arrHttp["usuario"]=$arrHttp["usuario_reserva"];
 if (!isset($arrHttp["db"])) $arrHttp["db"]=$arrHttp["base"];
 $arrHttp["reserve_ex"]="S";
 
-include("../config.php");
+
 include("../lang/admin.php");
 include("../lang/prestamo.php");
 include("../circulation/loan_configuration.php");
-include("../common/header.php");
-include("../common/institutional_info.php");
+
+
+
 if (isset($arrHttp["base"])) $arrHttp["db"]=$arrHttp["base"];
 include("../circulation/leer_pft.php");
 include("../circulation/databases_configure_read.php");
@@ -149,6 +156,7 @@ include("../circulation/scripts_circulation.php");
 ?>
 </head>
 <body>
+<?php if (!isset($arrHttp["desde"]) or (isset($arrHttp["desde"]) and $arrHttp["desde"]!="IAH_RESERVA")){?>
 <div class="sectionInfo">
 	<div class="breadcrumb">
 		<?php echo $msgstr["reserve"]?>
@@ -163,6 +171,7 @@ include("../circulation/scripts_circulation.php");
 <?php if (isset($_SESSION["permiso"]["CENTRAL_EDHLPSYS"])) echo "<a href=../documentacion/edit.php?archivo=".$_SESSION["lang"]."/circulacion/reserva.html target=_blank>".$msgstr["edhlp"]."</a>";
 echo "<font color=white>&nbsp; &nbsp; Script: reserve/reservar_ex.php" ?></font>
 </div>
+<? } ?>
 <div class="middle form">
 	<div class="formContent">
 <?php
@@ -218,7 +227,8 @@ if ($nv>0){
 
 //SE REVISA LA VIGENCIA DEL USUARIO
 if ($vigency_user!=""){	if ($vigency_user<date('Ymd')){		echo "<font color=red><h3>".$msgstr["limituserdate"]."</h3></font>";
-		$cont="N";	}}
+		$cont="N";
+	}}
 
 //SE VERIFICA SI EL USUARIO PUEDE RESERVAR
 $continuar="N";
@@ -295,6 +305,7 @@ if (trim($user_reserves)!="")
    </div>
 </div>
 <?php
+	if (!isset($arrHttp["desde"]) or (isset($arrHttp["desde"]) and $arrHttp["desde"]!="IAH_RESERVA"))
 	include("../common/footer.php");
 ?>
 </body>

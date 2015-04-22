@@ -1,8 +1,9 @@
 4 6
-mm.fmt|M|m|Monografía
-ma.fmt|M|a|Analítica Monografía
-ss.fmt|S|s|Publicación Seriada
-sa.fmt|S|a|Analítica de Seriada
-tm.fmt|T|m|Tesis
-cc.fmt|C|c|Colección
-mc.fmt|M|c|Monografía Colección
+e_doc.fmt|E|_doc|Electronic documents
+mm.fmt|M|m|Monography
+ma.fmt|M|a|Monogr. Analit.
+ss.fmt|S|s|Serial
+sa.fmt|S|a|Serial Anal.
+tm.fmt|T|m|Thesis
+cc.fmt|C|c|Collection
+mc.fmt|M|c|Monogr. Coll.

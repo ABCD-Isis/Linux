@@ -106,5 +106,13 @@ if s(v700,v710,v711,v720)<>'' then ,'<TR><TD valign=top  align=right><font face=
 (if p(v82) then if occ=1 then '<TR><TD valign=top  align=right><font face=arial size=2><b>Dewey classif:</TD><TD valign=top ><font face=arial size=2>',fi,,v82^a, | -- dc |v82^2,fi/) ,/if p(v82) then ,'</td>' fi,
 (if p(v84) then if occ=1 then '<TR><TD valign=top  align=right><font face=arial size=2><b>Other classif:</TD><TD valign=top ><font face=arial size=2>',fi,,v84^a, | |v84^b, |(|v84^2|)|,fi/)  /if p(v84) then ,'</td>' fi,
 (if p(v86) then if occ=1 then '<TR><TD valign=top  align=right><font face=arial size=2><b>Gov. doc. call #:</TD><TD valign=top ><font face=arial size=2>',fi,,v86^a,|(|v84^2|)|,,'<BR>'/fi/)  /if p(v86) then ,'</td>' fi,
-'</table>' 
 
+REF->loanobjects(L->loanobjects('CN_MARC_'v1),'LOAN INFO : ' 
+('<TR><TD valign=top  align=right width=40%><font face=arial size=2>',|copy with ID |v959^i,| - Location: |v959^l,|/|v959^b, '<TD width=40%>',
+if REF->trans(L->trans('TR_P_'v959^i),v1)='P'  then
+    REF->trans(L->trans('TR_P_'v959^i),'<span style="color:#990000">On loan - return date : 'v40' 'v45'</span>'),
+else '<span style="color:#767777">Is available for lending</span>'
+fi/
+ '<br />'
+))
+'</TR></table>', 

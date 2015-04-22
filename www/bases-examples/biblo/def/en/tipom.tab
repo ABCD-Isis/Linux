@@ -1,10 +1,10 @@
-mm.fdt M   m    Monografía                          
-ma.fdt M   a    Analítica Monografía  
-dm.fdt D   m    Documentos Técnicos           
-ss.fdt S   s    Publicación Seriada                 
-sa.fdt S   a    Analítica de Seriada                
-tm.fdt T   m    Tesis                               
-cc.fdt C   c    Colección                           
-mc.fdt M   c    Monografía Colección             
-vm.fdt V   m    Material no bibliog.              
+mm.fdt M   m    Monogr.                        
+ma.fdt M   a    Monogr. Anal.  
+dm.fdt D   m    Techn. Document           
+ss.fdt S   s    Serial Publ.                
+sa.fdt S   a    Serial Anal.               
+tm.fdt T   m    Thesis                               
+cc.fdt C   c    Collection                           
+mc.fdt M   c    Monogr. Collection             
+vm.fdt V   m    Non-bibl. material              
 kk.fdt K   k    Kardex PP

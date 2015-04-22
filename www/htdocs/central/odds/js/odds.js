@@ -138,7 +138,7 @@ function show_category_combo() {
 
 function VerDocumentoSA(Base, Parameters) {
     
-    msgwin=window.open("","AEUDOC","width=460,height=290,resizable");
+    msgwin=window.open("","ABCD ODDS","width=460,height=290,resizable");
     msgwin.focus();
     /*document.verdocumento.mfn.value=Mfn
     document.verdocumento.lang.value=Lang;
